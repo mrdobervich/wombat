@@ -82,10 +82,12 @@ class TasksController < ApplicationController
   end
 
   def index
-    if (params[:q][:completed_filter] == 'completed')
-      params[:q][:id_in] = current_user.completed_tasks.map { |t| t.id }
-    elsif (params[:q][:completed_filter] == 'uncompleted') 
-      params[:q][:id_not_in] = current_user.completed_tasks.map { |t| t.id }
+    if params[:q]
+      if (params[:q][:completed_filter] == 'completed')
+        params[:q][:id_in] = current_user.completed_tasks.map { |t| t.id }
+      elsif (params[:q][:completed_filter] == 'uncompleted') 
+        params[:q][:id_not_in] = current_user.completed_tasks.map { |t| t.id }
+      end
     end
 
     @q = Task.search(params[:q])
