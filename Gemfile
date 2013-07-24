@@ -30,3 +30,5 @@ gem "high_voltage"
 gem 'bootstrap-datetimepicker-rails'
 gem 'bootstrap-wysihtml5-rails', :require => 'bootstrap-wysihtml5-rails',
                               :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
+gem "ckeditor"
+gem "paperclip"

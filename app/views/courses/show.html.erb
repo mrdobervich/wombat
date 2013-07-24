@@ -10,7 +10,7 @@
 
   <div class="span6">
     <h3>Calendar</h3> 
-    <%= link_to "Create Entry", new_calendar_entry_path() , class: "btn pull-right" %>
+    <%= link_to "Create Entry", new_calendar_entry_path() , class: "btn pull-right" if is_admin %>
     <%= render "calendar_entries/entries_list", :calendar_entries => @course.calendar_entries if @course.calendar_entries %>
   </div>
 </div>

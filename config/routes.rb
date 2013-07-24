@@ -1,7 +1,8 @@
 Wombat::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
 
   resources :assignments
-
+  resources :calendar_entries
   resources :courses do
     resources :calendar_entries, shallow: true
     resources :assignments, shallow: true
@@ -17,7 +18,6 @@ Wombat::Application.routes.draw do
   resources :completed_tasks
   resources :submitted_assignments
 
-  resources :calendar_entries
   resources :courses
   resources :messages
 

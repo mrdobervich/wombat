@@ -1,5 +1,7 @@
 <h1>Listing calendar_entries</h1>
 
+    <%= link_to "Create Entry", new_calendar_entry_path() , class: "btn pull-right" if is_admin %>
+
 <table>
   <tr>
     <th>Course</th>
@@ -25,5 +27,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Calendar entry', new_calendar_entry_path %>

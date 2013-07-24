@@ -5,19 +5,11 @@
     <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, { :multiple => true, :size => 5 }) %>
     <%= f.input :date %>
     <%= f.input :title %>
-    <%= f.input :body, :input_html=>{:class=>'wysihtml5'} %>
+    <%= f.cktext_area :body, :class => "someclass", :ckeditor => {:uiColor => "#AADC6E", :toolbar => "mini"} %>
+
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
-
-
-<script type="text/javascript">
-$(document).ready(function() {
-  $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5();
-  });
-});
-</script>
