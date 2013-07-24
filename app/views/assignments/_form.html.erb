@@ -1,0 +1,17 @@
+<%= simple_form_for(@assignment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :task_id, :as => :hidden, :input_html => { :value => params['task_id'] } %>
+    <%= f.input :title %>
+    <%= f.input :due_date %>
+    <%= f.input :description %>
+    <%= f.input :category %>
+
+    <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, { :multiple => true, :size => 5 }) %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

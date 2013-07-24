@@ -1,0 +1,13 @@
+<% @message ||= Message.new %>
+
+<%= simple_form_for(@message) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :body, label: 'Send Mr. D a message', as: :text, :input_html => { :cols => 120, :rows => 8 }  %>
+    <input type="hidden" id="message_from" name="message[from]" value="<%= from %>"/>
+    <input type="hidden" id="message_user_id" name="message[user_id]" value="<%= current_user.id %>"/>
+    <%= f.submit "send" %>
+  </div>
+
+<% end %>

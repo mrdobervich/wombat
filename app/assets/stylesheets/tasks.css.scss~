@@ -1,0 +1,35 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+input[type="checkbox"]{
+  display:none;
+}
+
+.tag_checkbox{
+  padding:10px;
+  margin:5px;
+  cursor:pointer;
+  color:#000000;
+  -moz-border-radius: 10px; -webkit-border-radius: 10px;
+}
+
+.tag_checkbox label {
+  display: inline;
+}
+
+.checked{
+  background:#ff0000;
+}
+
+.unchecked{
+  background:#ffffff;
+}

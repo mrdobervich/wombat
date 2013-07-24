@@ -1,0 +1,69 @@
+<h1>Examples</h1>
+
+<p>
+Here you'll find simple examples in a number of topics to help get you going.
+</p>
+
+<div class="row">
+<div class="span4">
+  <b>Basics</b>
+  <ul>
+    <li>Simple program - Hello World</li>
+    <li>Displaying text</li>
+    <li>Variables and data-types</li>
+    <li>Getting user input</li>
+    <li>Simple math</li>
+  </ul>
+</div>
+
+<div class="span4">
+  <b>Procedural Programming</b>
+  <ul>
+    <li>Static methods</li>
+    <li>simple for-loops</li>
+    <li>nested for-loops</li>
+    <li>while loops</li>
+    <li>simple if-statements</li>
+    <li>complex if-statements</li>
+    <li>nested if-statements</li>
+  </ul>
+</div>
+
+<div class="span4">
+  <b>Using objects</b>
+  <ul>
+    <li>Creating new objects</li>
+    <li>Calling methods</li>
+  </ul>
+</div>
+</div>
+
+<div class="row">
+<div class="span4">
+  <b>Data Types</b>
+  <ul>
+    <li>arrays and ArrayLists</li>
+    <li>HashMaps</li>
+    <li>Strings</li>
+  </ul>
+</div>
+
+<div class="span4">
+  <b>Object Oriented Concepts</b>
+  <ul>
+    <li>Inheritence (extends, child classes)</li>
+    <li>Interfaces</li>
+    <li>Casting</li>
+    <li>Polymorphism</li>
+    <li>public, private, protected</li>
+  </ul>
+</div>
+
+<div class="span4">
+  <b>Common tasks</b>
+  <ul>
+    <li>Reading and writing text files</li>
+    <li>Playing an .mp3 file</li>
+  </ul>
+</div>
+</div>

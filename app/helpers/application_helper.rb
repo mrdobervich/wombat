@@ -12,4 +12,8 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def is_admin
+    return (current_user && (current_user.has_role? :admin))
+  end
+
 end

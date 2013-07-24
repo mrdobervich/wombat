@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @submitted_assignment.user %>
+</p>
+
+<p>
+  <b>Assignment:</b>
+  <%= @submitted_assignment.assignment %>
+</p>
+
+<p>
+  <b>Revision:</b>
+  <%= @submitted_assignment.revision %>
+</p>
+
+
+<%= link_to 'Edit', edit_submitted_assignment_path(@submitted_assignment) %> |
+<%= link_to 'Back', submitted_assignments_path %>

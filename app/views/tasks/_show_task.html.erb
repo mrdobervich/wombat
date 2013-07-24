@@ -1,0 +1,35 @@
+<%= link_to "Submit Solution", new_completed_task_path(:task_id => task.id), class: "btn pull-right" %>
+
+<% if is_admin %>
+    <%= link_to "Create assignment", new_assignment_path(:task_id => task.id) , class: "btn pull-right" %>
+<% end %>
+
+<p>
+  <b>Title:</b>
+  <%= task.title %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%= task.short_description %>
+</p>
+
+<p>
+  <b>Long description:</b>
+  <pre>
+    <%= raw addPrettifyTags(task.long_description) %>
+  </pre>
+</p>
+
+<p>
+  <b>Difficulty:</b>
+  <%= task.difficulty %>
+</p>
+
+<% if is_admin %>
+  <%= link_to 'Edit', edit_task_path(task) %> |
+<% end %>
+
+<script>
+  prettyPrint()
+</script>

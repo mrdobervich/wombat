@@ -1,0 +1,36 @@
+<% completed_ids = []
+   completed_ids = current_user.completed_assignments.map {|t| t.assignment_id } if current_user && current_user.completed_assignments %>
+
+<table class="table">
+  <thead>
+    <tr>    
+      <th>Name</th>
+      <th>Due Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% assignments.each do |assignment| %>
+
+    <% if (completed_ids.include? assignment.id ) %>
+      <tr class='open_assignment' style='background-color: #ff0;'>
+    <% else %>
+      <tr class='closed_assignment' style='background-color: #00f;'>
+    <% end %>
+   
+      <td><%= link_to assignment.title, assignment_path(assignment) %></td>
+      <td><%= assignment.due_date %></td>
+
+      <td></td>
+      <td>
+	<% if is_admin %>
+	<%= link_to 'Edit', edit_assignment_path(assignment) %> |
+	<%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

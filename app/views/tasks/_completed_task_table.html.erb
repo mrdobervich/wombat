@@ -1,0 +1,28 @@
+<table class="table table-striped">
+  <thead>
+    <tr>    
+      <th>Name</th>
+      <th>Difficulty</th>
+      <th>Short Description</th>
+      <th># of revisions</th>
+      <th>Date of last submission</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.each do |task| %>
+    <tr>
+      <td class="left"><%=link_to (h task.title), task %></td>
+      <td><%=h task.difficulty %></td>
+      <td>
+	<% 	task.tags.each do |tag| %>
+	<%= 	link_to tag, (tag_path(tag) ) %>
+	<%	end %>
+      </td>
+      <td><%= task.completed_tasks.where(:user_id => current_user.id).last.revision %></td>
+      <td><%= task.completed_tasks.where(:user_id => current_user.id).last.created_at %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>

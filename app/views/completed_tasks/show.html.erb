@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @completed_task.user %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= @completed_task.task %>
+</p>
+
+<p>
+  <b>Revision:</b>
+  <%= @completed_task.revision %>
+</p>
+
+
+<%= link_to 'Edit', edit_completed_task_path(@completed_task) %> |
+<%= link_to 'Back', completed_tasks_path %>

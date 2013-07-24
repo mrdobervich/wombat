@@ -1,0 +1,80 @@
+<h1>Search for a problem</h1>
+
+<div class="pull-right"><%= link_to "new", new_task_path() if is_admin %></div>
+
+<%= search_form_for @q, url: search_tasks_path do |f| %>
+<div class="row">
+  
+  <div class="span6">
+    <div class="field">
+      <%= f.label :title_cont, "Name contains" %>
+      <%= f.text_field :title_cont %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :difficulty_gteq, "Difficulty  between" %>
+      <%= f.text_field :difficulty_gteq %>
+      
+      <%= f.label :difficulty_lteq, "and" %>
+      <%= f.text_field :difficulty_lteq %>    
+    </div>
+  
+  <div class="actions"><%= f.submit "Search" %></div>  
+  </div>
+  
+  <div class="span6">
+    <b>Tags:</b>
+    <% @tags.each do |tag| %>
+    
+    <span class="tag_checkbox">
+    <% if (@q.tags_id_eq_any and @q.tags_id_eq_any.include? tag.id.to_i) %>
+    <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, true) %>
+    <%  else %>
+    <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, false) %>
+    <% end %>
+    <label> <%= tag.name %> </label>
+    </span>
+    <% end %>
+    
+  </div>
+  <br />
+  <div class="span6">
+    <br><%= radio_button_tag 'q[completed_filter]', 'all', true %> All problems
+    <br><%= radio_button_tag 'q[completed_filter]', 'completed' %> Your completed problems
+    <br><%= radio_button_tag 'q[completed_filter]', 'uncompleted' %> Your uncompleted problems
+  </div>
+
+</div>
+<% end %>
+
+<%= render :partial => "task_table", :locals => {:q => @q, :tasks => @tasks} %>
+
+<!--
+<table class="task_list">
+  <tr>
+    <th></th>
+    <th><%= sort_link @q, :title, "Name" %></th>
+    <th><%= sort_link @q, :difficulty, "Difficulty" %></th>
+    <th>Tags</th>
+  </tr>
+  
+  <% @tasks.each do |task| %>
+  <tr>
+    
+    <td>
+ 
+    </td>
+    
+    <td class="left"><%=link_to (h task.title), task %></td>
+    <td><%=h task.difficulty %></td>
+    <td>
+      <% 	task.tags.each do |tag| %>
+      <%= 	link_to tag, (tag_path(tag) ) %>
+      <%	end %>
+    </td>
+    <td><%= rand 10 %></td>
+    
+  </tr>
+  <% end %>
+</table>
+-->

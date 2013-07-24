@@ -1,0 +1,27 @@
+<h1>Listing submitted_assignments</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Assignment</th>
+    <th>Revision</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @submitted_assignments.each do |submitted_assignment| %>
+  <tr>
+    <td><%= submitted_assignment.user %></td>
+    <td><%= submitted_assignment.assignment %></td>
+    <td><%= submitted_assignment.revision %></td>
+    <td><%= link_to 'Show', submitted_assignment %></td>
+    <td><%= link_to 'Edit', edit_submitted_assignment_path(submitted_assignment) %></td>
+    <td><%= link_to 'Destroy', submitted_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Submitted assignment', new_submitted_assignment_path %>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1> <%= @course.name %></h1>
+<p>
+  <b>Year:</b>
+  <%= @course.year %>
+  <b>Period:</b>
+  <%= @course.period %>
+</p>
+
+<div class="row">
+  <div class="span6">
+    <h3>Students</h3>
+    <%= render "users/user_list", :users => @course.users if @course.users %>
+  </div>
+
+  <div class="span6">
+    <h3>Calendar</h3> 
+    <%= link_to "Create Entry", new_calendar_entry_path() , class: "btn pull-right" %>
+    <%= render "calendar_entries/entries_list", :calendar_entries => @course.calendar_entries if @course.calendar_entries %>
+  </div>
+</div>
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

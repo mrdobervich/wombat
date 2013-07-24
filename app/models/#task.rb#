@@ -1,0 +1,4 @@
+ sclass Task < ActiveRecord::Base
+  attr_accessible :difficulty, :long_description, :short_description, :title, :tag_list
+  acts_as_taggable
+end

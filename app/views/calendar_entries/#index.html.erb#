@@ -1,0 +1,29 @@
+<h1>Listing calendar_entries</h1>
+
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Date</th>
+    <th>Body</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendar_entries.each do |calendar_entry| %>
+  <tr>
+    <td><%= calendar_entry.course %></td>
+    <td><%= calendar_entry.date %></td>
+    <td><%= calendar_entry.body %></td>
+    <td><%= calendar_entry.title %></td>
+    <td><%= link_to 'Show', calendar_entry %></td>
+    <td><%= link_to 'Edit', edit_calendar_entry_path(calendar_entry) %></td>
+    <td><%= link_to 'Destroy', calendar_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calendar entry', new_calendar_entry_path %>

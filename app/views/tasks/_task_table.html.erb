@@ -1,0 +1,44 @@
+<table class="table table-striped">
+  <thead>
+    <tr>    
+      <th></th>
+      <th><%= sort_link q, :title, "Name" %></th>
+      <th><%= sort_link q, :difficulty, "Difficulty" %></th>
+      <th><%= sort_link q, :tag_list, "Tags" %></th>
+      <th># of solutions submitted</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% completed_ids = []
+       completed_ids = current_user.completed_tasks.map {|t| t.task_id } if current_user && current_user.completed_tasks %>
+
+    <% tasks.each do |task| %>
+    <tr>
+      
+      <td>
+	<!--  <%= image_tag("flagged.png", :size => "13x16", :alt => "f") if (@flagged_tasks && (@flagged_tasks.include? task.id)) %> -->
+	<%= image_tag("completed.png", :size => "16x16", :alt => "*") if (completed_ids.include? task.id) %>  
+      </td>
+      
+      <td class="left"><%=link_to (h task.title), task %></td>
+      <td><%=h task.difficulty %></td>
+      <td>
+	<% 	task.tags.each do |tag| %>
+	<%= 	link_to tag, (tag_path(tag) ) %>
+	<%	end %>
+      </td>
+      <td><%= task.users.size() %></td>
+
+      <% if is_admin %>
+      <td>
+	<%= link_to 'Edit', edit_task_path(task) %> |
+	<%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>  
+      <% end %>
+     </tr>
+    <% end %>
+  </tbody>
+</table>

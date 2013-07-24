@@ -1,0 +1,4 @@
+class CalendarEntry < ActiveRecord::Base
+  attr_accessible :body, :course, :date, :title
+  belongs_to :course
+end

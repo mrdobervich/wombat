@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @assignment.title %>
+</p>
+
+<p>
+  <b>Assignment instructions:</b>
+  <%= @assignment.description %>
+</p>
+
+<p>
+  <b>Task</b>
+  <%= render 'tasks/show_task', :task => @assignment.task %>
+</p>
+
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#pane1" data-toggle="tab">Submit new solution</a></li>
+
+    <% if (@old_solutions && @old_solutions.size() > 0) %>
+    <li><a href="#pane2" data-toggle="tab">View your old solutions</a></li>
+    <% end %>
+
+  </ul>
+  <div class="tab-content">
+    <div id="pane1" class="tab-pane active">
+      <h4>The Markup</h4>
+        <%= render 'completed_tasks/form' %>
+    </div>
+
+<% if (@old_solutions && @old_solutions.size() > 0) %>
+    <div id="pane2" class="tab-pane">
+    <h4>Your existing solutions</h4>
+      <%= render 'completed_tasks/completed_tasks_list', :completed_tasks => @old_solutions %>
+    </div>
+<% end %>
+
+  </div><!-- /.tab-content -->
+</div><!-- /.tabbable -->
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

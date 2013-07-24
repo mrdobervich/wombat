@@ -1,0 +1,13 @@
+<%= simple_form_for(@completed_assignment) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :completed_task %>
+    <%= f.association :assignment %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

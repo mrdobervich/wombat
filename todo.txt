@@ -1,0 +1,15 @@
+notes:
+- to prettyfiy code for a task in the long description, include a <code> </code> tag.  The view runs it through the addPrettifyTags() helper which dynamically replaces those with what google-code-prettyfiy expects, which is <pre class="prettify"> </pre>.
+
+
+
+improvements:
+- improve the skin for google-code-prettify
+- right now we query the database for the list of task difficulties.
+   Maybe it's better to have a defined constant somewhere for this.
+
+
+bug fixes:
+- right now tasks.js will prevent tabs from moving focus for textareas.  This probably happens for all textareas on the site and probably shouldn't.
+- the only way I could make bootstrap dropdown menus work was by including the jquery javascript file AFTER the bootstrap javascript.
+  unfortunately, doing this causes a ton of other javascript errors.  grrrr.

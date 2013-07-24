@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>    
+      <th>Date</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% calendar_entries.each do |calendar_entry| %>
+  <tr>
+    <td><%= calendar_entry.date %></td>
+    <td><%= calendar_entry.title %></td>
+    <td><%= calendar_entry.body %></td>
+
+    <td>
+      <% if is_admin %>
+      <%= link_to 'Edit', edit_calendar_entry_path(calendar_entry) %> |
+      <%= link_to 'Destroy', calendar_entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </td>
+    </tr>
+  <% end %>
+</tbody>
+</table>

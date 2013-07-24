@@ -1,0 +1,12 @@
+<ul>
+  <% calendar_entries.each do |calendar_entry| %>
+<li>
+<%= calendar_entry.date %>
+<%= calendar_entry.title %>
+<%= calendar_entry.body %>
+
+<%= link_to 'Edit', edit_calendar_entry_path(calendar_entry) %> |
+<%= link_to 'Destroy', calendar_entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>
+  <% end %>
+</ul>

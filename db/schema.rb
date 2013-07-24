@@ -11,7 +11,72 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611211658) do
+ActiveRecord::Schema.define(:version => 20130722191432) do
+
+  create_table "assignments", :force => true do |t|
+    t.string   "category"
+    t.integer  "course_id"
+    t.integer  "task_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.datetime "due_date"
+  end
+
+  add_index "assignments", ["course_id"], :name => "index_assignments_on_course_id"
+  add_index "assignments", ["task_id"], :name => "index_assignments_on_task_id"
+
+  create_table "calendar_entries", :force => true do |t|
+    t.integer  "course_id"
+    t.date     "date"
+    t.text     "body"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "completed_assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "completed_task_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "completed_assignments", ["assignment_id"], :name => "index_completed_assignments_on_assignment_id"
+  add_index "completed_assignments", ["completed_task_id"], :name => "index_completed_assignments_on_completed_task_id"
+  add_index "completed_assignments", ["user_id"], :name => "index_completed_assignments_on_user_id"
+
+  create_table "completed_tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.integer  "revision"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "solution"
+  end
+
+  add_index "completed_tasks", ["task_id"], :name => "index_completed_tasks_on_task_id"
+  add_index "completed_tasks", ["user_id"], :name => "index_completed_tasks_on_user_id"
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.integer  "period"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "body"
+    t.string   "from"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +88,43 @@ ActiveRecord::Schema.define(:version => 20130611211658) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "submitted_assignments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.integer  "revision"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "submitted_assignments", ["assignment_id"], :name => "index_submitted_assignments_on_assignment_id"
+  add_index "submitted_assignments", ["user_id"], :name => "index_submitted_assignments_on_user_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.string   "short_description"
+    t.text     "long_description"
+    t.integer  "difficulty"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -38,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20130611211658) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.integer  "course_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

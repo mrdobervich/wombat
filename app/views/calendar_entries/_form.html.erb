@@ -1,0 +1,23 @@
+<%= simple_form_for(@calendar_entry) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, { :multiple => true, :size => 5 }) %>
+    <%= f.input :date %>
+    <%= f.input :title %>
+    <%= f.input :body, :input_html=>{:class=>'wysihtml5'} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+});
+</script>

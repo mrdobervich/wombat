@@ -1,0 +1,14 @@
+<table class="table">
+  <tr>
+    <th>Date of submission</th>
+    <th>Solution</th>
+
+  </tr>
+
+<% completed_tasks.each do |completed_task| %>
+  <tr>
+    <td><%= completed_task.created_at %></td>
+    <td><%= completed_task.solution %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,4 +1,9 @@
-<%= link_to "Wombat", root_path, :class => 'brand' %>
+<% if user_signed_in? %>
+  <%= link_to current_user.name, root_path, :class => 'brand' %>
+<% else %>
+  <%= link_to "Wombat", root_path, :class => 'brand' %>
+<% end %>
+
 <ul class="nav">
   <% if user_signed_in? %>
     <li>
@@ -9,18 +14,33 @@
     <%= link_to 'Login', new_user_session_path %>
     </li>
   <% end %>
+
   <% if user_signed_in? %>
     <li>
     <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
-    <% if current_user.has_role? :admin %>
-      <li>
-      <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
   <% else %>
     <li>
     <%= link_to 'Sign up', new_user_registration_path %>
     </li>
   <% end %>
+  
+  <li class="dropdown">  
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
+      Learn
+      <b class="caret"></b>  
+    </a>
+    <ul class="dropdown-menu">  
+      <li>
+	<%= link_to 'Examples', page_path("examples/index") %>
+      </li>  
+      <li>
+	<%= link_to 'Tutorials', page_path("tutorials/index") %>
+      </li>
+    </ul>  
+  </li>
+  
+  <li>
+    <%= link_to 'Problems', '/tasks/' %>
+  </li>
 </ul>

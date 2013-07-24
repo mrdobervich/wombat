@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Course:</b>
+  <%= @calendar_entry.course.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @calendar_entry.date %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @calendar_entry.body %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @calendar_entry.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_calendar_entry_path(@calendar_entry) %> |
+<%= link_to 'Back', calendar_entries_path %>
