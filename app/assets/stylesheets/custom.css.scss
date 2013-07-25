@@ -1,0 +1,56 @@
+$myNavGrey: #2b3941;
+$myNavGreen: #9FC263;
+
+body { 
+     padding-top: 60px; 
+}
+
+.navbar-inner {
+     background-color: $myNavGrey;
+     background-image: none;
+     background-repeat: none;
+}
+
+.navbar .brand {
+       color: $myNavGreen;
+       text-shadow: 0 1px 0 black;
+}
+
+.navbar .nav > li > a {
+	color: white;
+	text-shadow: 0 1px 0 black;
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover { 
+	color: $myNavGreen;
+}
+
+.content {
+	 background-color: white;
+	 box-shadow: none;
+}
+
+h1, h2, h3, h4 {
+    color: $myNavGrey;
+}
+
+.btn-primary {
+	     background-color: $myNavGreen;
+	     background-image: linear-gradient(to bottom, #B0D76F, #93B35E);
+	     color: $myNavGrey;
+}
+
+.band {
+      display: block;
+      background-color: #8A8D94;
+      border: 1px solid #8A8D94;
+      margin-bottom: 10px;
+}
+
+.band > h1, .band > h2, .band > h3, .band > h4 {
+      color: white;
+}
+
+.subnav {
+	margin-bottom: 80px;
+}    

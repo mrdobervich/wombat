@@ -16,4 +16,8 @@ module ApplicationHelper
     return (current_user && (current_user.has_role? :admin))
   end
 
+  def addPrettifyTags(str)
+    str.gsub( '<code>', '<pre class="prettyprint linenums">' ).gsub('</code>', '</pre>')
+  end
+
 end

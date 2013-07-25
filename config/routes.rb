@@ -1,6 +1,11 @@
 Wombat::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
+  get 'users/:id', to: 'users#dashboard'
+
+  devise_for :users
+  resources :users
+
   resources :assignments
   resources :calendar_entries
   resources :courses do
@@ -37,8 +42,5 @@ Wombat::Application.routes.draw do
     root :to => 'users#dashboard'
   end
   root :to => "home#index"
- 
- devise_for :users
- resources :users
 
 end

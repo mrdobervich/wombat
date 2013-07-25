@@ -16,8 +16,8 @@
   <tr>
     <td><%= assignment.category %></td>
     <td><%= assignment.course.full_name %></td>
-    <td><%= assignment.task.title %></td>
-    <td><%= assignment.title %></td>
+    <td><%= assignment.task.title if assignment.task%></td>
+    <td><%= assignment.title if assignment.title%></td>
     <td><%= assignment.description %></td>
     <td><%= link_to 'Show', assignment %></td>
     <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>

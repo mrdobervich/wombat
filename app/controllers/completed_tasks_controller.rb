@@ -53,12 +53,12 @@ class CompletedTasksController < ApplicationController
       redirect_to :back
     end
 
-    if (params[:submit_assignment])
+    if (params[:commit] == "Save and Submit")
       @assignment = Assignment.find(params[:assignment_id])
       @completed_assignment = CompletedAssignment.new(:assignment_id => @assignment.id, :user_id => current_user.id, :completed_task_id => @completed_task.id)
       @completed_assignment.save
+      redirect_to @assignment
     else
-
       redirect_to show_completed_task_path(), notice: 'Task saved successfully'
     end
   end

@@ -8,8 +8,4 @@ module TasksHelper
     end
   end
   
-  def addPrettifyTags(str)
-    str.gsub( '<code>', '<pre class="prettyprint linenums">' ).gsub('</code>', '</pre>')
-  end
-
 end

@@ -1,20 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1> <%= @course.full_name %></h1>
+<h2> <%= @course.full_name %></h2>
+
+<div class="row">
+  <div class="span6">
+    <h3>Recent Calendar Entries</h3>
+    <span class="pull-right"><%= link_to 'view full calendar', course_calendar_entries_path(@course)%></span>
+    
+    <%= render 'calendar_entries/entries_list', {:calendar_entries => @course.calendar_entries.limit(5)} %>
+  </div>
+  
+  <div class="span6">
+    <h3>Recent Assignments</h3>
+    <span class="pull-right"><%= link_to 'view all assignments', course_assignments_path(@course)%></span>
+    
+    <%= render 'assignments/assignments_list', {:assignments => @course.assignments.limit(10)} %>
+   </div>
+</div>
 
 <div class="row">
   <div class="span6">
     <h3>Students</h3>
     <%= render "users/user_list", :users => @course.users if @course.users %>
   </div>
-
-  <div class="span6">
-    <h3>Calendar</h3> 
-    <%= link_to "Create Entry", new_calendar_entry_path() , class: "btn pull-right" if is_admin %>
-    <%= render "calendar_entries/entries_list", :calendar_entries => @course.calendar_entries if @course.calendar_entries %>
-  </div>
 </div>
-
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

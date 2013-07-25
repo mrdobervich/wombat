@@ -1,12 +1,12 @@
-<h3>Welcome <%= current_user.name %></h3>
+<h3>Welcome <%= @user.name %></h3>
 
 <div class="row">
   <div class="span6">
  
     <h3>Recent Calendar Entries</h3>
-    <span class="pull-right"><%= link_to 'view full calendar', course_calendar_entries_path(current_user.course)%></span>
+    <span class="pull-right"><%= link_to 'view full calendar', course_calendar_entries_path(@user.course)%></span>
 
-    <% if current_user.course %>
+    <% if @user.course %>
     <%= render 'calendar_entries/entries_list', {:calendar_entries => @calendar_entries} %>
     <% else %>
        Something is wrong!  You are not signed up for a course!
@@ -15,9 +15,9 @@
   
   <div class="span6">
     <h3>Recent Assignments</h3>
-    <span class="pull-right"><%= link_to 'view all assignments', course_assignments_path(current_user.course)%></span>
+    <span class="pull-right"><%= link_to 'view all assignments', course_assignments_path(@user.course)%></span>
 
-    <% if current_user.course %>
+    <% if @user.course %>
     <%= render 'assignments/assignments_list', {:assignments => @assignments} %>
     <% else %>
        Something is wrong!  You are not signed up for a course!
@@ -26,7 +26,7 @@
 </div>
 
 <h3>Recently Submitted Code</h3>
-    <span class="pull-right"><%= link_to 'view all your completed code', user_completed_tasks_path(current_user)%></span>
+    <span class="pull-right"><%= link_to 'view all your completed code', user_completed_tasks_path(@user)%></span>
 <%= render 'tasks/completed_task_table', {:tasks => @tasks} %>
 <h3>Contact Mr. D</h3>
 <div class="span10">

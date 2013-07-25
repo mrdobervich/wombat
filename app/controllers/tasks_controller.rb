@@ -14,6 +14,11 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
+    @completed_task = CompletedTask.new
+    @old_solutions = current_user.completed_tasks.where(:task_id => @task.id).order("created_at DESC")
+    @revisions = @old_solutions.size()
+    @user = current_user
+    @assignment = @user.course.assignments.where(:task_id => @task.id).first
 
     respond_to do |format|
       format.html # show.html.erb

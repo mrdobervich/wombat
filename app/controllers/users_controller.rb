@@ -7,10 +7,12 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @course = current_user.course
+    params[:id] ||= current_user.id
+    @user = User.find(params[:id])
+    @course = @user.course
     @calendar_entries = @course.calendar_entries.limit(10) if @course
     @assignments = @course.assignments.order("due_date DESC").limit(10) if @course
-    @tasks = current_user.tasks.order("created_at DESC").limit(10)
+    @tasks = @user.tasks.order("created_at DESC").limit(10)
   end
 
   def show

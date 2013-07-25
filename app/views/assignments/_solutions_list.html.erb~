@@ -1,0 +1,23 @@
+<% users = assignment.course.users %>
+<% course = assignment.course %>
+
+<h4>Solutions for <%= course.full_name %></h4>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Turned-in?</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td>
+	<% assignment = user.completed_assignments.where(:id => assignment_id) %>
+	<%= assignment ? assignment.created_at : "" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

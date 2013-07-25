@@ -1,14 +1,26 @@
+<div class="btn pull-right" id="expandall">expand all</div>
+
 <table class="table">
   <tr>
     <th>Date of submission</th>
     <th>Solution</th>
-
   </tr>
 
-<% completed_tasks.each do |completed_task| %>
+  <% completed_tasks.each do |completed_task| %>
   <tr>
     <td><%= completed_task.created_at %></td>
-    <td><%= completed_task.solution %></td>
+
+    <td>
+      <div class="btn pull-right">Submit assignment solution</div>
+	<div class="layer1">
+	  <div class="solution_heading">
+	    show your solution
+	</div>
+	  <div class="solution_content">
+	    <%= completed_task.solution %>
+	  </div>
+	</div>
+    </td>
   </tr>
-<% end %>
+  <% end %>
 </table>

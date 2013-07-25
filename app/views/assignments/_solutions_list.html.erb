@@ -1,0 +1,38 @@
+<% users = assignment.course.users %>
+<% course = assignment.course %>
+
+<div class="btn pull-right" id="expandall">expand all</div>
+
+<h4>Solutions for <%= course.full_name %></h4>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Turned-in?</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td>
+	<div class="layer1">
+	  <div class="solution_heading">
+	    <% ass =  user.completed_assignments.where(:assignment_id => assignment.id) %>
+	    <% a = ass.first %>
+	    <% if a %>
+	    <%= a.created_at %>
+	    <% end %>
+	</div>
+	  <div class="solution_content">
+	    <% if a %>
+	    <%= a.completed_task.solution %>
+	    <% end %>
+	  </div>
+	</div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -11,10 +11,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :course_id
-  has_many :completed_tasks
+  has_many :completed_tasks, dependent: :destroy
   has_many :tasks, :through => :completed_tasks
   has_many :completed_assignments
-  has_many :assignments, :through => :completed_assignments
 
   belongs_to :course
 end
