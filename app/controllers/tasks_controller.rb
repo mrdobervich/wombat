@@ -87,12 +87,18 @@ class TasksController < ApplicationController
   end
 
   def index
+    # filter in our out tasks already completed by user
     if params[:q]
       if (params[:q][:completed_filter] == 'completed')
         params[:q][:id_in] = current_user.completed_tasks.map { |t| t.id }
       elsif (params[:q][:completed_filter] == 'uncompleted') 
         params[:q][:id_not_in] = current_user.completed_tasks.map { |t| t.id }
       end
+    end
+
+    # filter out tasks already assigned to selected course
+    if params[:m] && params[:m][:m].to_i > 0
+      params[:q][:id_not_in] = Course.find(params[:m][:m]).assignments.map{ |a| a.task_id }
     end
 
     @q = Task.search(params[:q])

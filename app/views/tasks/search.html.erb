@@ -20,21 +20,18 @@
   </div>
 
    <div class="span6">
-     <b>Tags:</b>
-  <% @tags.each do |tag| %>
+     <% @tags.each do |tag| %>
 
-  <span class="tag_checkbox">
-    <% if (@q.tags_id_eq_any and @q.tags_id_eq_any.include? tag.id.to_i) %>
-    <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, true) %>
-    <%  else %>
-    <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, false) %>
-    <% end %>
-    <label> <%= tag.name %> </label>
-  </span>
-  <% end %>
-
-</div>
-
+     <span class="tag_checkbox">
+       <% if (@q.tags_id_eq_any and @q.tags_id_eq_any.include? tag.id.to_i) %>
+       <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, true) %>
+       <%  else %>
+       <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, false) %>
+       <% end %>
+       <label> <%= tag.name %> </label>
+     </span>
+     <% end %>     
+   </div>
 </div>
   <div class="actions pull-right"><%= f.submit "Search" %></div>
 <% end %>

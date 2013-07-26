@@ -1,0 +1,86 @@
+<h1>Displaying Text</h1>
+
+There are several methods for displaying text:
+<ul>
+  <li><code>System.out.print()</code> and <code>System.out.println()</code> - display text in the console.</li>
+  <li><code>JOptionPane.showInputDialog()</code> - displays text in a pop-up window.</li>
+  <li><code>System.out.printf()</code> - a useful print function which displays in the console and makes it easy to format the display of variables.</li>
+</ul>
+
+Here are examples of each:
+
+<h4>Print and Println</h4>
+
+The print and println statements display whatever is between their parentheses.  To display text, it must be in "quotes".  You can also put expressions in there.  If you wish to mix text and varibles, you must use the + operator.
+
+<pre class="prettyprint linnums">
+  System.out.println("simple text");        // displays 'simple text'
+  System.out.println( 2 + 3 );              // displays '5'
+  System.out.println("2 + 3");              // displays '2 + 3'
+
+  String name = "Dr. Octapus";
+  System.out.println("Curse you " + name + "!");        // displays 'Curse you Dr. Octapus!'
+
+  int n = 3;
+  System.out.println("You win" + n + "weasels");                                  // displays 'You win3weasels'
+  System.out.println("You win " + n + "weasels");                                 // displays 'You win 3 weasels'
+  System.out.println(                "You win "     +     n+"weasels"    );       // displays 'You win 3 weasels'
+</pre>
+
+<h4>JOptionPane.showInputDialog()</h4>
+
+These will pop up a window to display your text in with an "ok" button.  Note that you will need to import JOptionPane for this to work.
+
+<pre class="prettyprint linnums">
+  JOptionPane.showInputDialog("The cake is a lie.");
+</pre>
+
+<h4>System.out.printf()</h4>
+
+<p>
+This is a very powerful print statement for controlling the exact output format.  Not only that, but the syntax is almost exactly the same in many different languages (c, c++, ruby, perl, java).  The basic idea is that you have a string which contains some codes that start with %-signs.  These codes are like variables, and they will be replaced by values which follow.  In this example, we will use %d for decimal (integers), and %f for floating-point numbers (double and float).  You can also use %s for Strings and %c for characters, as well as several others.</p>
+
+<pre class="prettyprint linnums">
+  System.out.printf("There are %d lights", 4);                  // displays 'There are 4 lights'
+  System.out.printf("There are %d lights", 4);                  // displays 'There are 4 lights'
+  System.out.printf("Pi is not %f", 3.14);                      // displays 'Pi is not 3.14'
+  System.out.printf("%d + %d is %d", 2, 3, 5);                  // displays  '2 + 3 is 5'
+</pre>
+
+<b>Controlling the number of digits</b>
+<p>Students often want to display a floating-point number to only 2 decimal places.  You can do that as follows...</p>
+
+<pre class="prettyprint linnums">
+  System.out.printf("'%.1f'", 10.3456);          // displays '10.3'
+  System.out.printf("'%.2f'", 10.3456);          // displays '10.34'
+  System.out.printf("'%.3f'", 10.3456);          // displays '10.345'
+</pre>
+
+<b>Controlling the width of the display</b>
+<p>To display a table full of numbers, you want a fixed-width for each column so your numbers line up.  Here's how to do that.</p>
+
+<pre class="prettyprint linnums">
+  System.out.printf("'%8f'", 10.3);              // displays '    10.3' (8 wide, right justified)
+  System.out.printf("'%8f'", 10);                // displays '      10' (8 wide, right justified)
+  System.out.printf("'%6d'", 13);                // displays '    13' (6 wide, right justified)
+  System.out.printf("'%6d'", 2);                 // displays '     2' (6 wide, right justified)
+</pre>
+
+<p>You can also control the justification of the text</p>
+<pre class="prettyprint linnums">
+  System.out.printf("'%8d'", 10);                 // displays '      10' (8 wide, right justified)
+  System.out.printf("'%-8d'", 10);                // displays '10      ' (8 wide, left justified)
+  System.out.printf("'%08d'", 10);                // displays '00000010' (8 wide, zero filled)
+</pre>
+
+<p>You can also mix these together.</p>
+<pre class="prettyprint linnums">
+  System.out.printf("%-8.2f", 10.3456);                // displays '10.35   ' (8 wide, 2 decimal places, left justified)
+  System.out.printf("%08.2f", 10.3456);                // displays '00010.35' (8 wide, 2 decimal places, zero filled)
+</pre>
+
+For more examples, do a google search, look at the api, or see this <a href="http://alvinalexander.com/programming/printf-format-cheat-sheet">cheat sheet</a>
+
+<script>
+prettyPrint()
+</script>

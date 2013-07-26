@@ -1,0 +1,28 @@
+<h1>Displaying Text</h1>
+
+There are several methods for displaying text:
+<ul>
+  <li><pre>System.out.print()</pre> and <pre>System.out.println()</pre> - display text in the console.</li>
+  <li><pre>JOptionPane.showInputDialog()</pre> - displays text in a pop-up window.</li>
+  <li><pre>System.out.printf()</pre> - a useful print function which displays in the console and makes it easy to format the display of variables.</li>
+</ul>
+
+Here are examples of each:
+
+<h4>Print and Println</h4>
+
+The print and println statements display whatever is between their parentheses.  To display text, it must be in "quotes".  You can also put expressions in there.  If you wish to mix text and varibles, you must use the + operator.
+
+<code>
+  System.out.println("simple text");        // displays 'simple text'
+  System.out.println( 2 + 3 );              // displays '5'
+  System.out.println("2 + 3");              // displays '2 + 3'
+
+  String name = "Dr. Octapus";
+  System.out.println("Curse you " + name + "!");        // displays 'Curse you Dr. Octapus!'
+
+  int n = 3;
+  System.out.println("The answer is" + n);                                 // displays 'The answer is3'
+  System.out.println("The answer is " + n);                                // displays 'The answer is 3'
+  System.out.println(                "The answer is "     +     n);        // displays 'The answer is 3'
+</code>

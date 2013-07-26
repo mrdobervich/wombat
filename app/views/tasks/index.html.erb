@@ -18,7 +18,12 @@
       <%= f.label :difficulty_lteq, "and" %>
       <%= f.text_field :difficulty_lteq %>    
     </div>
-  
+
+<% if is_admin %>
+Filter out problems already assigned to class...
+<%= select("m", "m", Course.all.collect {|c| [ c.full_name, c.id ]}, {:include_blank => '==None==', :selected => params[:m][:m]}) %>
+<% end %>
+
   <div class="actions"><%= f.submit "Search" %></div>  
   </div>
   
