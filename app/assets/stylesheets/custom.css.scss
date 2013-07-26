@@ -5,6 +5,20 @@ body {
      padding-top: 60px; 
 }
 
+input, textarea {
+       width: auto;
+}
+
+label {
+      display: inline-block;
+}
+
+.table-admin {	
+    position: absolute; 
+    left: 110px; 
+    font-size: 10px;
+}
+
 .navbar-inner {
      background-color: $myNavGrey;
      background-image: none;

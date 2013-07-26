@@ -4,84 +4,64 @@
 
 <%= search_form_for @q, url: search_tasks_path do |f| %>
 <div class="row">
-  
   <div class="span6">
-    <div class="field">
-      <%= f.label :title_cont, "Name contains" %>
-      <%= f.text_field :title_cont %>
-    </div>
+    <%= f.label :title_cont, "Name contains" %>
+    <%= f.text_field :title_cont, size: 25 %>
     
-    <div class="field">
-      <%= f.label :difficulty_gteq, "Difficulty  between" %>
-      <%= f.text_field :difficulty_gteq %>
-      
-      <%= f.label :difficulty_lteq, "and" %>
-      <%= f.text_field :difficulty_lteq %>    
-    </div>
+    <%= f.label :difficulty_gteq, "Difficulty  between" %>
+    <%= f.text_field :difficulty_gteq, size: 2 %>
+    
+    <%= f.label :difficulty_lteq, "and" %>
+    <%= f.text_field :difficulty_lteq, size: 2 %>    
 
-<% if is_admin %>
-Filter out problems already assigned to class...
-<%= select("m", "m", Course.all.collect {|c| [ c.full_name, c.id ]}, {:include_blank => '==None==', :selected => params[:m][:m]}) %>
-<% end %>
+  <% if is_admin %>
+  <br />
+  Filter out problems already assigned to<br />
+  <%= select("m", "m", Course.all.collect {|c| [ c.full_name, c.id ]}, {:include_blank => '==None==', :selected => (params[:m] ? params[:m][:m]:"") }) %>
+  <% end %>
 
-  <div class="actions"><%= f.submit "Search" %></div>  
+  <br />
+  <b>Show:</b>
+  <% # is_selected() just returns true or false so the buttons will retain state %>
+  <br><%= radio_button_tag 'q[completed_filter]', 'all', is_selected(params, 'all') %> All problems
+  <br><%= radio_button_tag 'q[completed_filter]', 'completed', is_selected(params, 'completed')  %> Your completed problems
+  <br><%= radio_button_tag 'q[completed_filter]', 'uncompleted', is_selected(params, 'uncompleted') %> Your uncompleted problems
+    
+  <br />
+  <%= f.submit "Search" %>  
   </div>
-  
+
   <div class="span6">
     <b>Tags:</b>
+    <div style="display: block">
     <% @tags.each do |tag| %>
     
     <span class="tag_checkbox">
-    <% if (@q.tags_id_eq_any and @q.tags_id_eq_any.include? tag.id.to_i) %>
-    <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, true) %>
-    <%  else %>
-    <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, false) %>
-    <% end %>
-    <label> <%= tag.name %> </label>
+      <% if (@q.tags_id_eq_any and @q.tags_id_eq_any.include? tag.id.to_i) %>
+      <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, true) %>
+      <%  else %>
+      <%=  check_box_tag('q[tags_id_eq_any][]', tag.id, false) %>
+      <% end %>
+      <label> <%= tag.name %> </label>
     </span>
     <% end %>
-    
+    </div>
   </div>
-  <br />
-  <div class="span6">
+  
+</div>
 
-    <% # is_selected() just returns true or false so the buttons will retain state %>
-    <br><%= radio_button_tag 'q[completed_filter]', 'all', is_selected(params, 'all') %> All problems
-    <br><%= radio_button_tag 'q[completed_filter]', 'completed', is_selected(params, 'completed')  %> Your completed problems
-    <br><%= radio_button_tag 'q[completed_filter]', 'uncompleted', is_selected(params, 'uncompleted') %> Your uncompleted problems
-  </div>
+<% end %>
 
+<% if is_admin %>
+<div class="span10">
+<% end %>
+
+    <%= render :partial => "task_table", :locals => {:q => @q, :tasks => @tasks} %>
+
+<% if is_admin %>
 </div>
 <% end %>
 
-<%= render :partial => "task_table", :locals => {:q => @q, :tasks => @tasks} %>
-
-<!--
-<table class="task_list">
-  <tr>
-    <th></th>
-    <th><%= sort_link @q, :title, "Name" %></th>
-    <th><%= sort_link @q, :difficulty, "Difficulty" %></th>
-    <th>Tags</th>
-  </tr>
-  
-  <% @tasks.each do |task| %>
-  <tr>
-    
-    <td>
- 
-    </td>
-    
-    <td class="left"><%=link_to (h task.title), task %></td>
-    <td><%=h task.difficulty %></td>
-    <td>
-      <% 	task.tags.each do |tag| %>
-      <%= 	link_to tag, (tag_path(tag) ) %>
-      <%	end %>
-    </td>
-    <td><%= rand 10 %></td>
-    
-  </tr>
-  <% end %>
-</table>
--->
+<% if is_admin %>
+    <%= render :partial => 'set_builder_side_nav' %>
+<% end %>

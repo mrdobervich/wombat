@@ -17,27 +17,26 @@
 
     <% tasks.each do |task| %>
     <tr>
-      
       <td>
-	<!--  <%= image_tag("flagged.png", :size => "13x16", :alt => "f") if (@flagged_tasks && (@flagged_tasks.include? task.id)) %> -->
-	<%= image_tag("completed.png", :size => "16x16", :alt => "*") if (completed_ids.include? task.id) %>  
+	<%= image_tag("greencheck.gif", :alt => "*") if (completed_ids.include? task.id) %>  
       </td>
-      
+
       <td class="left"><%=link_to (h task.title), task %></td>
       <td><%=h task.difficulty %></td>
       <td>
 	<% 	task.tags.each do |tag| %>
-	<%= 	link_to tag, (tag_path(tag) ) %>
+	<%= 	tag.name %>
 	<%	end %>
       </td>
       <td><%= task.users.size() %></td>
-
-      <% if is_admin %>
       <td>
-	<%= link_to 'Edit', edit_task_path(task) %> |
-	<%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </td>  
+      <% if is_admin %>  
+      <span class="table-admin">
+        <%= link_to 'Edit', edit_task_path(task) %> |
+        <%= link_to 'X', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
       <% end %>
+      </td>
      </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,29 @@
+<div class="nav" style="position: fixed; width: 350px; right: 0px; border: 1px solid black;">
+  <div style="margin: 10px">
+  Build problem set...
+
+  <div id="task_set">
+    <ul style="list-style-type: none">
+      <li>    <%= check_box_tag('test', 23, true) %><label>Test 1</label></li>
+      <li>    <%= check_box_tag('test', 23, true) %><label>Test 2</label></li>
+      <li>    <%= check_box_tag('test', 23, true) %><label>Test 3</label></li>
+      <li>    <%= check_box_tag('test', 23, true) %><label>Test 4</label></li>
+      <li>    <%= check_box_tag('test', 23, true) %><label>Test 5</label></li>
+    </ul>
+  </div>
+
+  <%= form_tag('massAssign') do -%>
+      <%= submit_tag 'Mass assign' %>
+  <% end -%>
+
+  </div>
+</div>
+
+<script>
+   $(document).ready(function () {
+      $('#task_set input:checkbox').change(function () {
+           $(this).parent().remove();
+             console.log("DONE!");
+       });
+     });
+</script>

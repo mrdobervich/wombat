@@ -2,26 +2,16 @@
     <%= link_to "Create assignment", new_assignment_path(:task_id => task.id) , class: "btn pull-right" %>
 <% end %>
 
+<h2><%= task.title %></h2>
 <p>
-  <b>Title:</b>
-  <%= task.title %>
+  <em><%= task.short_description %></em>
+  <span style="float: right">Difficulty: <%= task.difficulty %></span>
 </p>
 
 <p>
-  <b>Short description:</b>
-  <%= task.short_description %>
-</p>
 
-<p>
-  <b>Long description:</b>
-  <pre>
     <%= raw addPrettifyTags(task.long_description) %>
-  </pre>
-</p>
 
-<p>
-  <b>Difficulty:</b>
-  <%= task.difficulty %>
 </p>
 
 <div class="tabbable">
