@@ -1,4 +1,6 @@
 class CompletedTasksController < ApplicationController
+  load_and_authorize_resource
+
   # GET /completed_tasks
   # GET /completed_tasks.json
   def index
@@ -59,7 +61,7 @@ class CompletedTasksController < ApplicationController
       @completed_assignment.save
       redirect_to @assignment
     else
-      redirect_to show_completed_task_path(), notice: 'Task saved successfully'
+      redirect_to :back
     end
   end
 

@@ -1,11 +1,6 @@
 Wombat::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  get 'users/:id', to: 'users#dashboard'
-
-  devise_for :users
-  resources :users
-
   resources :assignments
   resources :calendar_entries
   resources :courses do
@@ -13,11 +8,17 @@ Wombat::Application.routes.draw do
     resources :assignments, shallow: true
   end
 
+  devise_for :users
+  resources :users
+
   resources :users do
     resources :assignments, shallow: true
     resources :completed_assignments, shallow: true
     resources :completed_tasks, shallow: true
   end
+
+  get 'users/:id', to: 'users#dashboard'
+  get 'users/gradeview/:id', to: 'users#gradeview', :as => :gradeview_user
 
   resources :completed_assignments
   resources :completed_tasks

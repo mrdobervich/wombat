@@ -1,4 +1,6 @@
 class CompletedAssignmentsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /completed_assignments
   # GET /completed_assignments.json
   def index

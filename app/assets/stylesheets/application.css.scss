@@ -9,10 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require google-code-prettify-rails/prettify
- *= require_self
- *= require_tree .
  *= require bootstrap-datetimepicker
  *= require bootstrap-wysihtml5
+ *= require jquery.ui.all
+ *= require_self
+ *= require_tree .
 */
 
 .content {
@@ -33,7 +34,7 @@ padding: 0;
 width: 500px;
 }
 
-.solution_heading {
+.expand_target {
 margin: 1px;	
 color: #fff;	
 padding: 3px 10px;
@@ -42,7 +43,7 @@ position: relative;
 background-color:#c30;
 }
 
-.solution_content {
+.expandable {
 padding: 5px 10px;
 background-color:#fafafa;
 }

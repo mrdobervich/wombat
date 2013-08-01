@@ -12,6 +12,7 @@
 //
 //= require bootstrap
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require google-code-prettify-rails/prettify
 //= require ckeditor/init

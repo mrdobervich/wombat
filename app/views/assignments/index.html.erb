@@ -1,9 +1,8 @@
-<h1>Listing assignments</h1>
+<h1>Assignments for <%= @course.full_name %></h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Category</th>
-    <th>Course</th>
     <th>Task</th>
     <th>Title</th>
     <th>Description</th>
@@ -15,7 +14,6 @@
 <% @assignments.each do |assignment| %>
   <tr>
     <td><%= assignment.category %></td>
-    <td><%= assignment.course.full_name %></td>
     <td><%= assignment.task.title if assignment.task%></td>
     <td><%= assignment.title if assignment.title%></td>
     <td><%= assignment.description %></td>

@@ -1,13 +1,14 @@
   jQuery(document).ready(function() {
-    jQuery(".solution_content").hide();
-  
+    jQuery(".expandable").hide();
+
     //toggle the componenet with class msg_body
-    jQuery(".solution_heading").click(function()
+    jQuery(".expand_target").click(function()
       {
-      jQuery(this).next(".solution_content").slideToggle(500);
+	  console.log("hey");
+	  jQuery(this).next(".expandable").slideToggle(500);
       });
 
     $("#expandall").click( function() {
-      $(".solution_content").slideToggle(500);
+      $(".expandable").slideToggle(500);
     });
   });

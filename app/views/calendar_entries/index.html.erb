@@ -1,13 +1,12 @@
-<h1>Listing calendar_entries</h1>
+<h1>Calendar for <%= @course.full_name %></h1>
 
     <%= link_to "Create Entry", new_calendar_entry_path() , class: "btn pull-right" if is_admin %>
 
-<table>
+<table class="table">
   <tr>
-    <th>Course</th>
     <th>Date</th>
-    <th>Body</th>
     <th>Title</th>
+    <th>Body</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +14,11 @@
 
 <% @calendar_entries.each do |calendar_entry| %>
   <tr>
-    <td><%= calendar_entry.course %></td>
     <td><%= calendar_entry.date %></td>
-    <td><%= calendar_entry.body %></td>
     <td><%= calendar_entry.title %></td>
-    <td><%= link_to 'Show', calendar_entry %></td>
-    <td><%= link_to 'Edit', edit_calendar_entry_path(calendar_entry) %></td>
-    <td><%= link_to 'Destroy', calendar_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= calendar_entry.body.html_safe %></td>
+    <td><%= link_to 'Edit', edit_calendar_entry_path(calendar_entry) if is_admin %></td>
+    <td><%= link_to 'Destroy', calendar_entry, method: :delete, data: { confirm: 'Are you sure?' } if is_admin %></td>
   </tr>
 <% end %>
 </table>

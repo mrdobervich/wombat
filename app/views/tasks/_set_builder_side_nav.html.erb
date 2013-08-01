@@ -3,17 +3,12 @@
   Build problem set...
 
   <div id="task_set">
-    <ul style="list-style-type: none">
-      <li>    <%= check_box_tag('test', 23, true) %><label>Test 1</label></li>
-      <li>    <%= check_box_tag('test', 23, true) %><label>Test 2</label></li>
-      <li>    <%= check_box_tag('test', 23, true) %><label>Test 3</label></li>
-      <li>    <%= check_box_tag('test', 23, true) %><label>Test 4</label></li>
-      <li>    <%= check_box_tag('test', 23, true) %><label>Test 5</label></li>
+    <ul id="task_set_list" style="list-style-type: none">
     </ul>
   </div>
 
   <%= form_tag('massAssign') do -%>
-      <%= submit_tag 'Mass assign' %>
+      <%= submit_tag 'Mass assign', :name => 'mass_assign' %>
   <% end -%>
 
   </div>
@@ -21,9 +16,14 @@
 
 <script>
    $(document).ready(function () {
-      $('#task_set input:checkbox').change(function () {
-           $(this).parent().remove();
-             console.log("DONE!");
+      $('.add_task').click(function (e) {
+           e.preventDefault();
+           
+           t = $('#task_set_list').append('<li><input checked="checked" id="test" name="test" type="checkbox" value="23" /><label>Test 1</label></li>');
+           $('#task_set input:checkbox').change(function () {
+             $(this).parent().remove();
+             
+             }); 
        });
      });
 </script>

@@ -1,12 +1,14 @@
 class CalendarEntriesController < ApplicationController
+  load_and_authorize_resource
+
   # GET /calendar_entries
   # GET /calendar_entries.json
   def index
     if (params[:course_id])
       @course = Course.find(params[:course_id])
-      @calendar_entries = @course.calendar_entries
+      @calendar_entries = @course.calendar_entries.order("created_at DESC")
     else
-      @calendar_entries = CalendarEntry.all
+      @calendar_entries = CalendarEntry.all.order("created_at DESC")
     end
 
     respond_to do |format|
@@ -90,7 +92,7 @@ class CalendarEntriesController < ApplicationController
     @calendar_entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to calendar_entries_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

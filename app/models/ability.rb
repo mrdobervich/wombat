@@ -3,9 +3,20 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
+
+    can :dashboard, User
+    can :edit, User, :id => user.id
+    can [:index, :show], Task
+    can :manage, CompletedTask, :user_id => user.id
+
+    cannot :destroy, :all
+    cannot :update, :all
+    cannot :index, [CompletedAssignment, CompletedTask, User, CalendarEntry, Message, Course, Assignment]
+
     if user.has_role? :admin
       can :manage, :all
     end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

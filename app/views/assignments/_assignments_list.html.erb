@@ -17,11 +17,7 @@
 
     <tr>
       <td>
-	<% if (completed_ids.include? assignment.id ) %>
-	<%= image_tag "greencheck.gif", alt: "*" %>
-	<% else %>
-	<%= image_tag "red-x.gif", alt: "x" %>
-	<% end %>
+	<%= completed_image(assignment, completed_ids) %>
       </td>
    
       <td><%= link_to assignment.title, assignment_path(assignment) %></td>

@@ -1,14 +1,5 @@
 class TasksController < ApplicationController
-  # GET /tasks
-  # GET /tasks.json
-
-  def adminindex
-    if params[:tag]
-      @tasks = Task.tagged_with(params[:tag])
-    else
-      @tasks = Task.all
-    end
-  end
+  before_filter :authenticate_user!
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -18,7 +9,10 @@ class TasksController < ApplicationController
     @old_solutions = current_user.completed_tasks.where(:task_id => @task.id).order("created_at DESC")
     @revisions = @old_solutions.size()
     @user = current_user
-    @assignment = @user.course.assignments.where(:task_id => @task.id).first
+
+    if @user.course
+      @assignment = @user.course.assignments.where(:task_id => @task.id).first
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -102,7 +96,7 @@ class TasksController < ApplicationController
     end
 
     @q = Task.search(params[:q])
-    @tags = Task.tag_counts_on :tags
+    @tags = (Task.tag_counts_on :tags).sort{ |x,y| x.name.downcase <=> y.name.downcase }
     @tasks = @q.result(:distinct => true)
   end
 end

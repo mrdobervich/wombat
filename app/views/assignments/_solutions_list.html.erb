@@ -17,14 +17,14 @@
       <td><%= link_to user.name, user %></td>
       <td>
 	<div class="layer1">
-	  <div class="solution_heading">
+	  <div class="expand_target">
 	    <% ass =  user.completed_assignments.where(:assignment_id => assignment.id) %>
 	    <% a = ass.first %>
 	    <% if a %>
 	    <%= a.created_at %>
 	    <% end %>
 	</div>
-	  <div class="solution_content">
+	  <div class="expandable">
 	    <% if a %>
 	    <%= a.completed_task.solution %>
 	    <% end %>

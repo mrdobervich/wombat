@@ -1,0 +1,5 @@
+<h3>Grade view for <%= @user.name %></h3>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+</div>

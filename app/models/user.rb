@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  validates :course, presence: true
+  # WHY WAS THIS SET IN THE FIRST PLACE?? YARR..
+  # validates :course, presence: true
 
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :course_id

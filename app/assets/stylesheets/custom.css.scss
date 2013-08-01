@@ -5,6 +5,20 @@ body {
      padding-top: 60px; 
 }
 
+.nav {
+     margin: 0px;
+}
+
+.tab-content {
+	  margin: 0px;
+	  border-left: 1px solid #DDDDDD;
+	  border-right: 1px solid #DDDDDD;
+}
+
+.tab-content {
+	  buffer: 10px;
+}
+
 input, textarea {
        width: auto;
 }
@@ -46,12 +60,6 @@ label {
 
 h1, h2, h3, h4 {
     color: $myNavGrey;
-}
-
-.btn-primary {
-	     background-color: $myNavGreen;
-	     background-image: linear-gradient(to bottom, #B0D76F, #93B35E);
-	     color: $myNavGrey;
 }
 
 .band {

@@ -1,5 +1,8 @@
 <div class="btn pull-right" id="expandall">expand all</div>
 
+<% @completed_assignment ||= CompletedAssignment.new %>
+<%= form_for @completed_assignment do |f| %>
+
 <table class="table">
   <tr>
     <th>Date of submission</th>
@@ -11,12 +14,12 @@
     <td><%= completed_task.created_at %></td>
 
     <td>
-      <div class="btn pull-right">Submit assignment solution</div>
+      <%= submit_tag "Submit as assignment solution", name: "task", value: "#{completed_task.id}", class: "btn pull-right" %>
 	<div class="layer1">
-	  <div class="solution_heading">
+	  <div class="expand_target">
 	    show your solution
 	</div>
-	  <div class="solution_content">
+	  <div class="expandable">
 	    <%= completed_task.solution %>
 	  </div>
 	</div>
@@ -24,3 +27,5 @@
   </tr>
   <% end %>
 </table>
+
+<% end %>
