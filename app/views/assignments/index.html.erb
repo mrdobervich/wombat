@@ -1,5 +1,8 @@
 <h1>Assignments for <%= @course.full_name %></h1>
 
+<%= render 'assignments/assignments_list', {:assignments => @assignments} %>
+
+<!--
 <table class="table">
   <tr>
     <th>Category</th>
@@ -27,3 +30,4 @@
 <br />
 
 <%= link_to 'New Assignment', new_assignment_path %>
+-->

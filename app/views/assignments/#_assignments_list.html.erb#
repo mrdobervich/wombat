@@ -1,0 +1,36 @@
+<% completed_ids = []
+   completed_ids = current_user.completed_assignments.map {|t| t.assignment_id } if current_user && current_user.completed_assignments %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Submitted?</th>
+      <th>Name</th>
+      <th>Due Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% assignments.each do |assignment| %>
+
+    <tr>
+      <td>
+	<%= completed_image(assignment, completed_ids) %>
+      </td>
+   
+      <td><%= link_to assignment.title, assignment_path(assignment) %></td>
+      <td><%= distance_of_time_in_words_to_now(assignment.due_date) if assignment.due_date %></td>
+
+      <td></td>
+      <td>
+	<% if is_admin %>
+	<%= link_to 'Edit', edit_assignment_path(assignment) %> |
+	<%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

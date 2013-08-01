@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     @course = @user.course
     @calendar_entries = @course.calendar_entries.limit(10) if @course
     @assignments = @course.assignments.order("due_date DESC").limit(10) if @course
-    @tasks = @user.tasks.order("created_at DESC").limit(10)
+    @tasks = @user.final_completed_tasks
+#    @tasks = @user.tasks.order("created_at DESC").limit(10)
   end
 
   def show

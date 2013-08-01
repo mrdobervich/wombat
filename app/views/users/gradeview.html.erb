@@ -1,5 +1,11 @@
 <h3>Grade view for <%= @user.name %></h3>
 
+<p>
+Total assignments: <%= @user.assignments.size() %><br />
+Late assignments: <%= @user.late_completed_assignments.size() %><br />
+Missing assignments: <%= @user.assignments_missing.size() %><br />
+</p>
+
     <div class="progress">
     <div class="bar" style="width: 60%;"></div>
     </div>
