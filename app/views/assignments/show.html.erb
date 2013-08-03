@@ -48,7 +48,7 @@
 <% if (@old_solutions && @old_solutions.size() > 0) %>
     <div id="pane2" class="tab-pane">
     <h4>Your existing solutions</h4>
-      <%= render 'completed_tasks/completed_tasks_list', :completed_tasks => @old_solutions %>
+      <%= render 'completed_tasks/completed_tasks_list', :completed_tasks => @old_solutions, :assignment => @assignment %>
     </div>
 <% end %>
 

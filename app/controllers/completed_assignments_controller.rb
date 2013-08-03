@@ -42,14 +42,21 @@ class CompletedAssignmentsController < ApplicationController
   # POST /completed_assignments
   # POST /completed_assignments.json
   def create
+    if (params[:completed_task])
+      params[:completed_assignment] ||= {}
+      params[:completed_assignment][:completed_task_id] = params[:completed_task]
+      params[:completed_assignment][:user_id] = current_user.id
+      params[:completed_assignment][:assignment_id] = params[:assignment_id]
+    end
+    
     @completed_assignment = CompletedAssignment.new(params[:completed_assignment])
 
     respond_to do |format|
       if @completed_assignment.save
-        format.html { redirect_to @completed_assignment, notice: 'Completed assignment was successfully created.' }
+        format.html { redirect_to :back }
         format.json { render json: @completed_assignment, status: :created, location: @completed_assignment }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to :back }
         format.json { render json: @completed_assignment.errors, status: :unprocessable_entity }
       end
     end
