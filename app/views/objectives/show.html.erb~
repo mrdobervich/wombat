@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Assignment:</b>
+  <%= @objective.assignment %>
+</p>
+
+<p>
+  <b>Mastery category:</b>
+  <%= @objective.mastery_category %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @objective.description %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @objective.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_objective_path(@objective) %> |
+<%= link_to 'Back', objectives_path %>

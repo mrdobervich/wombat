@@ -1,0 +1,27 @@
+<h1>Listing mastery_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Description link</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mastery_categories.each do |mastery_category| %>
+  <tr>
+    <td><%= mastery_category.name %></td>
+    <td><%= mastery_category.description %></td>
+    <td><%= mastery_category.description_link %></td>
+    <td><%= link_to 'Show', mastery_category %></td>
+    <td><%= link_to 'Edit', edit_mastery_category_path(mastery_category) %></td>
+    <td><%= link_to 'Destroy', mastery_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mastery category', new_mastery_category_path %>

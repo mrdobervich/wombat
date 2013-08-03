@@ -1,0 +1,2 @@
+module ObjectiveResultsHelper
+end

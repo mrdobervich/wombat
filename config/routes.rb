@@ -1,4 +1,16 @@
 Wombat::Application.routes.draw do
+  resources :objective_results
+
+
+  resources :assessments
+
+
+  resources :objectives
+
+
+  resources :mastery_categories
+
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :assignments

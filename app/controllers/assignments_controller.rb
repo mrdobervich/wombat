@@ -61,6 +61,8 @@ class AssignmentsController < ApplicationController
       @assignment = Assignment.new(params[:assignment])
       @assignment.course_id = id;
       @assignment.save
+
+      createDefaultAssessment(@assignment)
     }
 
     respond_to do |format|
@@ -101,5 +103,14 @@ class AssignmentsController < ApplicationController
       format.html { redirect_to @course }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def createDefaultAssessment(assignment)
+    MasteryCategory.all.each { |category|
+      @objective = Objective.new(:assignment_id => assignment.id, :mastery_category_id => category.id, :type => "range")
+      @objective.save
+    }
   end
 end

@@ -1,0 +1,33 @@
+<h1>Listing objective_results</h1>
+
+<table>
+  <tr>
+    <th>Objective</th>
+    <th>Assessment</th>
+    <th>Student</th>
+    <th>Mastery category</th>
+    <th>Score</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @objective_results.each do |objective_result| %>
+  <tr>
+    <td><%= objective_result.objective %></td>
+    <td><%= objective_result.assessment %></td>
+    <td><%= objective_result.student %></td>
+    <td><%= objective_result.mastery_category %></td>
+    <td><%= objective_result.score %></td>
+    <td><%= objective_result.comment %></td>
+    <td><%= link_to 'Show', objective_result %></td>
+    <td><%= link_to 'Edit', edit_objective_result_path(objective_result) %></td>
+    <td><%= link_to 'Destroy', objective_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Objective result', new_objective_result_path %>

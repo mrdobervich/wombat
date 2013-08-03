@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @mastery_category.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @mastery_category.description %>
+</p>
+
+<p>
+  <b>Description link:</b>
+  <%= @mastery_category.description_link %>
+</p>
+
+
+<%= link_to 'Edit', edit_mastery_category_path(@mastery_category) %> |
+<%= link_to 'Back', mastery_categories_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Objective:</b>
+  <%= @objective_result.objective %>
+</p>
+
+<p>
+  <b>Assessment:</b>
+  <%= @objective_result.assessment %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @objective_result.student %>
+</p>
+
+<p>
+  <b>Mastery category:</b>
+  <%= @objective_result.mastery_category %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @objective_result.score %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @objective_result.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_objective_result_path(@objective_result) %> |
+<%= link_to 'Back', objective_results_path %>

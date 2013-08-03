@@ -1,0 +1,32 @@
+<% @objectives ||= assignment.objectives %>
+<% @objective ||= Objective.new %>
+
+<p></p>
+<table>
+<% @objectives.each do |objective| %>
+  <tr>
+    <td><%= objective.mastery_category.name %></td>
+    <td><%= !objective.description.nil? ? objective.description : objective.mastery_category.description %></td>
+    <td><%= link_to 'Show', objective %></td>
+    <td><%= link_to 'Edit', edit_objective_path(objective) %></td>
+    <td><%= link_to 'Destroy', objective, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+    <%= simple_form_for(@objective) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :assignment_id, :as => :hidden, :input_html => { :value => @assignment.id } %>
+      <%= select("objective", "mastery_category_id", MasteryCategory.all.collect {|c| [ c.name, c.id ] }) %>
+
+      <%= f.input :description %>
+      <%= f.input :objective_type %>
+
+      <%= f.button :submit %>
+    </div>
+    <% end %>
+  
+
+<br />

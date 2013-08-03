@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724155444) do
+ActiveRecord::Schema.define(:version => 20130802185307) do
+
+  create_table "assessments", :force => true do |t|
+    t.integer  "grader_id"
+    t.integer  "student_id"
+    t.integer  "completed_assignment_id"
+    t.text     "comment"
+    t.boolean  "official"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "assessments", ["completed_assignment_id"], :name => "index_assessments_on_completed_assignment_id"
+  add_index "assessments", ["grader_id"], :name => "index_assessments_on_grader_id"
+  add_index "assessments", ["student_id"], :name => "index_assessments_on_student_id"
 
   create_table "assignments", :force => true do |t|
     t.string   "category"
@@ -84,6 +98,14 @@ ActiveRecord::Schema.define(:version => 20130724155444) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "mastery_categories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "description_link"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "messages", :force => true do |t|
     t.string   "body"
     t.string   "from"
@@ -93,6 +115,34 @@ ActiveRecord::Schema.define(:version => 20130724155444) do
   end
 
   add_index "messages", ["user_id"], :name => "index_messages_on_user_id"
+
+  create_table "objective_results", :force => true do |t|
+    t.integer  "objective_id"
+    t.integer  "assessment_id"
+    t.integer  "student_id"
+    t.integer  "mastery_category_id"
+    t.integer  "score"
+    t.text     "comment"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "objective_results", ["assessment_id"], :name => "index_objective_results_on_assessment_id"
+  add_index "objective_results", ["mastery_category_id"], :name => "index_objective_results_on_mastery_category_id"
+  add_index "objective_results", ["objective_id"], :name => "index_objective_results_on_objective_id"
+  add_index "objective_results", ["student_id"], :name => "index_objective_results_on_student_id"
+
+  create_table "objectives", :force => true do |t|
+    t.integer  "assignment_id"
+    t.integer  "mastery_category_id"
+    t.text     "description"
+    t.string   "objective_type"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "objectives", ["assignment_id"], :name => "index_objectives_on_assignment_id"
+  add_index "objectives", ["mastery_category_id"], :name => "index_objectives_on_mastery_category_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

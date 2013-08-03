@@ -1,0 +1,40 @@
+<% @assessments = assignment.assessments
+   @assessment = @assessments.first if @assessments.size() > 0
+%>
+
+<% if (@assessment) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Grader:</b>
+  <%= @assessment.grader %>
+</p>
+
+<p>
+  <b>Student:</b>
+  <%= @assessment.student %>
+</p>
+
+<p>
+  <b>Completed assignment:</b>
+  <%= @assessment.completed_assignment %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @assessment.comment %>
+</p>
+
+<p>
+  <b>Official:</b>
+  <%= @assessment.official %>
+</p>
+
+
+<%= link_to 'Edit', edit_assessment_path(@assessment) %> |
+<%= link_to 'Back', assessments_path %>
+
+<% else %>
+  Something went wrong!  There's no assessment here!
+<% end %>
