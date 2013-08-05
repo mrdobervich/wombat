@@ -45,16 +45,17 @@ class AssessmentsController < ApplicationController
       @ob.save
       @objectives_results.push(@ob)
     }
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @assessment }
-    end
+
+    redirect_to :action => "edit", :id => @assessment.id
   end
 
   # GET /assessments/1/edit
   def edit
     @assessment = Assessment.find(params[:id])
+    @completed_assignment = CompletedAssignment.find(@assessment.completed_assignment_id)
+    @assignment = @completed_assignment.assignment
+
+    @objectives_results = @assessment.objective_results
   end
 
   # POST /assessments
@@ -80,7 +81,7 @@ class AssessmentsController < ApplicationController
 
     respond_to do |format|
       if @assessment.update_attributes(params[:assessment])
-        format.html { redirect_to @assessment, notice: 'Assessment was successfully updated.' }
+        format.html { redirect_to :back }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -96,7 +97,7 @@ class AssessmentsController < ApplicationController
     @assessment.destroy
 
     respond_to do |format|
-      format.html { redirect_to assessments_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

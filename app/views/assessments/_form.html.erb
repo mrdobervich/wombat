@@ -1,11 +1,3 @@
-<%= simple_form_for(@assessment) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :grader_id, :as => :hidden, :input_html => { :value => @assessment.grader_id } %>
-    <%= f.input :student_id, :as => :hidden, :input_html => { :value => @assessment.student_id } %>
-    <%= f.input :completed_assignment_id, :as => :hidden, :input_html => { :value => @assessment.completed_assignment_id } %>
-
     <table class="table-condensed">
 	<tr>
 	  <td>Mastery Category</td>
@@ -17,14 +9,22 @@
     <% @objectives_results.each { |objective_result| %>
       <%= simple_form_for(objective_result) do |s| %>
     <tr>
-      <td><%= objective_result.mastery_category %></td>
+      <td><%= objective_result.mastery_category.name %></td>
       <td><%= !objective_result.objective.description.nil? ? objective_result.objective.description : objective_result.objective.mastery_category.description %></td>
       <td><%= s.input :score %></td>
-      <td><%= s.input :comment %> </td>
+      <td><%= s.text_area(:comment, cols: 40, rows: 6) %>
+      <td><%= s.button :submit %> </td>
     </tr>
     <% end %>
     <% } %>
     </table>
+
+  <%= simple_form_for(@assessment) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :grader_id, :as => :hidden, :input_html => { :value => @assessment.grader_id } %>
+    <%= f.input :student_id, :as => :hidden, :input_html => { :value => @assessment.student_id } %>
+    <%= f.input :completed_assignment_id, :as => :hidden, :input_html => { :value => @assessment.completed_assignment_id } %>
 
     <%= f.input :comment %>
     <%= f.input :official %>
@@ -34,3 +34,30 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Solution</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      <pre>
+	<%= raw addPrettifyTags(@assessment.completed_assignment.completed_task.solution) %>
+      </pre>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+<script>
+$(document).keydown(function(evt){
+    if (evt.keyCode==83 && (evt.ctrlKey)){
+        evt.preventDefault();
+        $('#myModal').modal('show');
+    }
+});
+</script>

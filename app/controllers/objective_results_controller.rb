@@ -35,6 +35,8 @@ class ObjectiveResultsController < ApplicationController
   # GET /objective_results/1/edit
   def edit
     @objective_result = ObjectiveResult.find(params[:id])
+
+    redirect_to :back
   end
 
   # POST /objective_results
@@ -60,10 +62,10 @@ class ObjectiveResultsController < ApplicationController
 
     respond_to do |format|
       if @objective_result.update_attributes(params[:objective_result])
-        format.html { redirect_to @objective_result, notice: 'Objective result was successfully updated.' }
+        format.html { redirect_to :back}
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to :back }
         format.json { render json: @objective_result.errors, status: :unprocessable_entity }
       end
     end
