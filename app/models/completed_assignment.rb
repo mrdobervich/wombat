@@ -5,5 +5,5 @@ class CompletedAssignment < ActiveRecord::Base
 
   has_many :assessments
 
-  attr_accessible :user_id, :completed_task_id, :assignment_id, :created_at
+  attr_accessible :user_id, :completed_task_id, :assignment_id, :created_at, :current
 end

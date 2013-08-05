@@ -48,11 +48,18 @@ class CompletedAssignmentsController < ApplicationController
       params[:completed_assignment][:user_id] = current_user.id
       params[:completed_assignment][:assignment_id] = params[:assignment_id]
     end
-    
+
+    @old = CompletedAssignment.where(:user_id => current_user.id, :assignment_id => params[:completed_assignment][:assignment_id], :current => true).first
     @completed_assignment = CompletedAssignment.new(params[:completed_assignment])
 
     respond_to do |format|
       if @completed_assignment.save
+
+        @completed_assignment.current = true     # set new one to current
+        @old.current = false if @old
+        @completed_assignment.save
+        @old.save if @old
+
         format.html { redirect_to :back }
         format.json { render json: @completed_assignment, status: :created, location: @completed_assignment }
       else

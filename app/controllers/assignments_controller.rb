@@ -109,7 +109,7 @@ class AssignmentsController < ApplicationController
 
   def createDefaultAssessment(assignment)
     MasteryCategory.all.each { |category|
-      @objective = Objective.new(:assignment_id => assignment.id, :mastery_category_id => category.id, :type => "range")
+      @objective = Objective.new(:assignment_id => assignment.id, :mastery_category_id => category.id, :objective_type => "range")
       @objective.save
     }
   end

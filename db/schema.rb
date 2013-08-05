@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130802185307) do
+ActiveRecord::Schema.define(:version => 20130803190000) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "grader_id"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130802185307) do
     t.integer  "assignment_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.boolean  "current"
   end
 
   add_index "completed_assignments", ["assignment_id"], :name => "index_completed_assignments_on_assignment_id"

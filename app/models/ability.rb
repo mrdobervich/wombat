@@ -9,6 +9,8 @@ class Ability
     can [:index, :show], Task
     can :manage, CompletedTask, :user_id => user.id
 
+    can :show, Assignment
+
     cannot :destroy, :all
     cannot :update, :all
     cannot :index, [CompletedAssignment, CompletedTask, User, CalendarEntry, Message, Course, Assignment]

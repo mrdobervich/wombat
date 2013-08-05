@@ -14,10 +14,17 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :course_id
   has_many :completed_tasks, dependent: :destroy
   has_many :tasks, :through => :completed_tasks
+
   has_many :completed_assignments
+  has_many :assessments
+#  has_many :assessments_as_student, :class_name => 'Assessment', :foreign_key => 'student_id'
+#  has_many :assessments_as_grader, :class_name => 'Assessment', :foreign_key => 'grader_id'
+  has_many :objective_results
 
   belongs_to :course
 
+  # list of most recently saved completed_tasks for each task id
+  # buggy?? does this even work??
   def final_completed_tasks
     self.tasks.order("created_at DESC").group_by {|t| t.id }.map { |k, v| v.first }
   end
@@ -34,7 +41,7 @@ class User < ActiveRecord::Base
 
   # get most recently completed solution to given assignment
   def assignment_solution(ass_id)
-    self.all_completed_assignments.select{ |a| a.assignment_id == ass_id }.first
+    self.final_completed_assignments.select{ |a| a.assignment_id == ass_id }.first
   end
 
   # List of assignments that have been completed
@@ -44,7 +51,7 @@ class User < ActiveRecord::Base
 
   # list of most recently submitted completed_assignment for each assignment
   def final_completed_assignments 
-    self.all_completed_assignments.group_by {|t| t.assignment_id } .map { |k, v| v.first }
+    self.all_completed_assignments.select {|a| a.current }
   end
 
   # all late completed_assignments

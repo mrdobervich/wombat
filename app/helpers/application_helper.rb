@@ -20,6 +20,10 @@ module ApplicationHelper
     str.gsub( '<code>', '<pre class="prettyprint linenums">' ).gsub('</code>', '</pre>')
   end
 
+  def display_date_in_words(date)
+    suffix = (date < Time.now.to_datetime) ? " ago" : " from now"
+    distance_of_time_in_words_to_now(date) + suffix
+  end
 
   def make_link(link, name, url)
     "<a href=\"#{url}\">#{link}</a> from - " + eval("#{name}_link")

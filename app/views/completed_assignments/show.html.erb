@@ -1,20 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @completed_assignment.user %>
-</p>
-
 <p>
   <b>Completed task:</b>
-  <%= @completed_assignment.completed_task %>
+  <%= raw addPrettifyTags(completed_assignment.completed_task.solution) %>
 </p>
 
-<p>
-  <b>Assignment:</b>
-  <%= @completed_assignment.assignment %>
-</p>
-
-
-<%= link_to 'Edit', edit_completed_assignment_path(@completed_assignment) %> |
-<%= link_to 'Back', completed_assignments_path %>

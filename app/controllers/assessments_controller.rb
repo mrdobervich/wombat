@@ -24,8 +24,28 @@ class AssessmentsController < ApplicationController
   # GET /assessments/new
   # GET /assessments/new.json
   def new
-    @assessment = Assessment.new
+    params[:assessment] = {}
+    params[:assessment][:completed_assignment_id] = params[:completed_assignment_id]
+    params[:assessment][:grader_id] = params[:grader_id]
+    params[:assessment][:student_id] = params[:student_id]
 
+    @assessment = Assessment.new(params[:assessment])
+    @assessment.save
+    
+    @completed_assignment = CompletedAssignment.find(params[:assessment][:completed_assignment_id])
+    @assignment = @completed_assignment.assignment
+
+    @objectives_results = []
+    @assignment.objectives.each { |objective |
+      @ob = ObjectiveResult.new
+      @ob.assessment_id = @assessment.id
+      @ob.student_id = @completed_assignment.user_id
+      @ob.objective_id = objective.id
+      @ob.mastery_category_id = objective.mastery_category_id
+      @ob.save
+      @objectives_results.push(@ob)
+    }
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @assessment }

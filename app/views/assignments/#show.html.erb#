@@ -75,6 +75,7 @@
     <h4>Class Solutions</h4>
       <%= render 'solutions_list', {:assignment => @assignment} %>
     </div>
+
   </div><!-- /.tab-content -->
 </div><!-- /.tabbable -->
 

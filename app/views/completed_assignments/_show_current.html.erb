@@ -1,0 +1,15 @@
+<p>
+
+<div class="pull-right">
+<%= link_to 'self assess', new_assessment_path(:grader_id => @user.id, :student_id => @user.id, :completed_assignment_id => completed_assignment.id, :official => false) %>
+<% if is_admin %>
+| <%= link_to 'evaluate', new_assessment_path(:grader_id => current_user.id, :student_id => @user.id, :completed_assignment_id => completed_assignment.id, :official => false) %>
+<% end %>
+</div>
+</p>
+
+<p>
+<pre>
+  <%= raw addPrettifyTags(completed_assignment.completed_task.solution) %>
+</pre>
+</p>

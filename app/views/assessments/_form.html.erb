@@ -2,9 +2,30 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :grader %>
-    <%= f.association :student %>
-    <%= f.association :completed_assignment %>
+    <%= f.input :grader_id, :as => :hidden, :input_html => { :value => @assessment.grader_id } %>
+    <%= f.input :student_id, :as => :hidden, :input_html => { :value => @assessment.student_id } %>
+    <%= f.input :completed_assignment_id, :as => :hidden, :input_html => { :value => @assessment.completed_assignment_id } %>
+
+    <table class="table-condensed">
+	<tr>
+	  <td>Mastery Category</td>
+	  <td>Description</td>
+	  <td>Score</td>
+	  <td>Comment</td>
+	</tr>
+ 
+    <% @objectives_results.each { |objective_result| %>
+      <%= simple_form_for(objective_result) do |s| %>
+    <tr>
+      <td><%= objective_result.mastery_category %></td>
+      <td><%= !objective_result.objective.description.nil? ? objective_result.objective.description : objective_result.objective.mastery_category.description %></td>
+      <td><%= s.input :score %></td>
+      <td><%= s.input :comment %> </td>
+    </tr>
+    <% end %>
+    <% } %>
+    </table>
+
     <%= f.input :comment %>
     <%= f.input :official %>
   </div>
