@@ -81,6 +81,9 @@ class TasksController < ApplicationController
   end
 
   def index
+
+    params[:q] ||= {}
+
     # filter in our out tasks already completed by user
     if params[:q]
       if (params[:q][:completed_filter] == 'completed')
@@ -94,6 +97,9 @@ class TasksController < ApplicationController
     if params[:m] && params[:m][:m].to_i > 0
       params[:q][:id_not_in] = Course.find(params[:m][:m]).assignments.map{ |a| a.task_id }
     end
+
+    # filter out all hidden tasks
+    params[:q][:hidden_ne] = true
 
     @q = Task.search(params[:q])
     @tags = (Task.tag_counts_on :tags).sort{ |x,y| x.name.downcase <=> y.name.downcase }

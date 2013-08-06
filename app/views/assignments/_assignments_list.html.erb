@@ -20,7 +20,7 @@
 	<%= completed_image(assignment, completed_ids) %>
       </td>
    
-      <td><%= link_to assignment.title, assignment_path(assignment) %></td>
+      <td><%= link_to assignment.task.title, assignment_path(assignment) %></td>
       <td><%= display_date_in_words(assignment.due_date) if assignment.due_date %></td>
 
       <td></td>

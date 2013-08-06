@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130803190000) do
+ActiveRecord::Schema.define(:version => 20130806005753) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "grader_id"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20130803190000) do
     t.string   "category"
     t.integer  "course_id"
     t.integer  "task_id"
-    t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -191,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20130803190000) do
     t.integer  "difficulty"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.boolean  "hidden"
   end
 
   create_table "users", :force => true do |t|
