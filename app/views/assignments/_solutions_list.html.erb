@@ -9,17 +9,24 @@
     <tr>
       <th>Name</th>
       <th>Turned-in?</th>
+      <th>View Assessments</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
   <% users.each do |user| %>
+    <% ass =  user.completed_assignments.where(:assignment_id => assignment.id, :current => true) %>
+    <% a = ass.first %>
     <tr>
-      <td><%= link_to user.name, user %></td>
+      <td>
+	<% if a %> 
+	  <%= link_to user.name, a %></td>
+        <% else %>
+	  <%= user.name %>
+	<% end %>
       <td>
 	<div class="layer1">
 	  <div class="expand_target">
-	    <% ass =  user.completed_assignments.where(:assignment_id => assignment.id) %>
-	    <% a = ass.first %>
 	    <% if a %>
 	    <%= a.created_at %>
 	    <% end %>
@@ -30,6 +37,18 @@
 	    <% end %>
 	  </div>
 	</div>
+      </td>
+      <td>
+	<% if a %>
+	  <% a.assessments.each { |assess| %>
+	    <%= link_to 'show', edit_assessment_path(assess.id) %>
+	  <% } %>
+	<% end %>
+      </td>
+      <td>
+	<% if a %>
+	<%= link_to 'evaluate', new_assessment_path(:grader_id => current_user.id, :student_id => user.id, :completed_assignment_id => a.id, :official => true) %>
+	<% end %>
       </td>
     </tr>
   <% end %>
