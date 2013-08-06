@@ -24,6 +24,8 @@ Wombat::Application.routes.draw do
 
   get 'users/:id', to: 'users#dashboard'
   get 'users/gradeview/:id', to: 'users#gradeview', :as => :gradeview_user
+  get 'tasks/new_assignment', to: 'tasks#new_assignment', :as => :one_time_assignment
+  post 'tasks/new_assignment', to: 'tasks#new_assignment_create', :as => :one_time_assignment_create
 
   resources :completed_assignments
   resources :completed_tasks

@@ -1,6 +1,28 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!
 
+  def new_assignment    
+  end
+
+  def new_assignment_create
+    @task = Task.new(params[:task])
+    @task.hidden = true
+    @task.save
+    
+    ids = params[:m][:cids]
+    ids.shift()
+    ids.map { |id|
+      @assignment = Assignment.new(params[:assignment])
+      @assignment.task_id = @task.id    
+      @assignment.course_id = id
+      @assignment.save
+      
+      createDefaultAssessment(@assignment)
+    }
+
+    redirect_to @task
+  end
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -104,5 +126,14 @@ class TasksController < ApplicationController
     @q = Task.search(params[:q])
     @tags = (Task.tag_counts_on :tags).sort{ |x,y| x.name.downcase <=> y.name.downcase }
     @tasks = @q.result(:distinct => true)
+  end
+
+  private
+
+  def createDefaultAssessment(assignment)
+    MasteryCategory.all.each { |category|
+      @objective = Objective.new(:assignment_id => assignment.id, :mastery_category_id => category.id, :objective_type => "range")
+      @objective.save
+    }
   end
 end

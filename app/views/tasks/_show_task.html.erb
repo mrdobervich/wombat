@@ -8,11 +8,9 @@
   <span style="float: right">Difficulty: <%= task.difficulty %></span>
 </p>
 
-<pre>
-
-    <%= raw addPrettifyTags(task.long_description) %>
-
-</pre>
+<p>
+    <%= addPrettifyTags(task.long_description).html_safe %>
+</p>
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
@@ -48,5 +46,5 @@
 <% end %>
 
 <script>
-  prettyPrint()
+  prettyPrint();
 </script>
