@@ -1,0 +1,36 @@
+<h1>Doing Simple Calculations</h1>
+
+<p>Java supports the following basic math operations<br />
+<table>
+  <tr><td>Symbol</td><td>meaning</td><td>example</td></tr>
+  <tr><td>+</td><td>addition</td><td>a = myNum + 5</td></tr>
+  <tr><td>-</td><td>subtraction</td><td>a = a - 3</td></tr>
+  <tr><td>/</td><td>division</td><td>a = 4.5 / 2</td></tr>
+  <tr><td>*</td><td>multiplication</td><td>a = a*a</td></tr>
+</table>
+</p>
+
+<h3>Common Mistakes</h3>
+<p>
+<b>Integer division</b>
+If both values in a division are integers, the result will be an integer!  For example...
+
+<code>
+int a = 5/2;     // a is now 2
+int b = 3;
+int c = (b + 6) / 4;    // c is now 2   
+</code>
+
+The result is NOT rounded.  Instead, java ignores the non-integer portion of the result.
+</p>
+<p>The way to fix this is to make sure one or both items in the division are a non-integer data type.<br />
+
+For literals you can do this:  <code>Change 2 to 2.0</code><br />
+For variables you can do this:  <code>int c = ((double)b) / 2;</code>.  This is called casting and you can read about it on its own example page.  The basic idea is you put a data type in parenthesis before the variable, and java will attempt to treat your varaible as if it were the new data type.
+</p>
+
+<p><b>a^2 is NOT equal to a squared</b><br />
+To square a variable (or cube a variable) the best thing to do is the following:
+<code>double result = a*a;   // this is a squared</code>
+<code>double result = a*a*a;   // this is a cubed</code>
+</p>

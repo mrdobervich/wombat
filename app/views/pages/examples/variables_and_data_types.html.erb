@@ -1,0 +1,38 @@
+<h1>Variables and Data Types</h1>
+
+<p>To use a variable, you need to declare it (create it), and then you can initialize it (give it a starting value).</p>
+
+<p>
+<b>Declaring a variable</b><br />
+The pattern you use to declare a variable is: <code>DataType variableName;</b>
+</p>
+
+<p>
+<b>Initializing a variable</b><br />
+After you have declared the variable you can assign it a value: <code>variableName = expression;</b>
+</p>
+
+<p>Here are several examples that illustrate this</p>
+
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+
+        int a;        // declare a as an integer
+        int b, c, d;  // declare three integer variables on the same line
+
+        a = 5;        // assign 5 to a
+        b = 2*a + 5;  // assign the result of '2*a + 5' to b.  b is now 15.
+
+        int f = 5, g = 3;  // you can declare and assign multiple variables on the same line.
+        int a;             // this is an error!  a is already declared on line 4!
+
+        int b = 2.3;       // this is an error!  you can't assign 2.3 to b, because b can only hold an int!
+
+        String name = "Marl Babok";  // declare an initialize name to be "Marl Babok"
+        char letter = 'b';           // declare and initialize letter to be 'b'
+        double pi = 3.14159;
+    }
+}
+</pre>
+
