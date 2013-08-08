@@ -59,6 +59,11 @@ class User < ActiveRecord::Base
     self.final_completed_assignments.select { |a| a.assignment && a.assignment.due_date < a.created_at }
   end
 
+  # all late completed_assignments
+  def on_time_completed_assignments
+    self.final_completed_assignments.reject { |a| a.assignment && a.assignment.due_date < a.created_at }
+  end
+
   # all missing assignments
   def assignments_missing
     self.course.assignments.reject { |a| self.assignments_completed.include?(a) }

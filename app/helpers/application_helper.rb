@@ -21,8 +21,8 @@ module ApplicationHelper
   end
 
   def display_date_in_words(date)
-    suffix = (date < Time.now.to_datetime) ? " ago" : " from now"
-    distance_of_time_in_words_to_now(date) + suffix
+    suffix = (date < Time.now.to_datetime) ? " ago " : " from now "
+    distance_of_time_in_words_to_now(date) + suffix + "on " + date.strftime("%m/%d/%y") 
   end
 
   def make_link(link, name, url)

@@ -57,7 +57,7 @@ class CompletedTasksController < ApplicationController
 
     if (params[:commit] == "Save and Submit")
       @assignment = Assignment.find(params[:assignment_id])
-      @completed_assignment = CompletedAssignment.new(:assignment_id => @assignment.id, :user_id => current_user.id, :completed_task_id => @completed_task.id)
+      @completed_assignment = CompletedAssignment.new(:assignment_id => @assignment.id, :user_id => current_user.id, :completed_task_id => @completed_task.id, :current => true)
       @completed_assignment.save
       redirect_to @assignment
     else

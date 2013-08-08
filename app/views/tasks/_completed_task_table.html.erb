@@ -23,7 +23,7 @@
       <td><%= task.completed_tasks.where(:user_id => current_user.id).last.revision %></td>
       <td>
 	<% d = task.completed_tasks.where(:user_id => current_user.id).last.created_at %>
-	<%= distance_of_time_in_words_to_now(d) + "ago on " + d.strftime("%m/%d/%y") %> 
+	<%= display_date_in_words(d) %> 
       </td>
      </tr>
     <% end %>
