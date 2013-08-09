@@ -26,7 +26,7 @@
 </div>
 
 <h3>Recently Submitted Code</h3>
-    <span class="pull-right"><%= link_to 'view all your completed code', user_completed_tasks_path(@user)%></span>
+ <!--   <span class="pull-right"><%= link_to 'view all your completed code', user_completed_tasks_path(@user)%></span> -->
 <%= render 'tasks/completed_task_table', {:tasks => @tasks} %>
 
 <h3>Grade View</h3>
@@ -43,6 +43,5 @@
   'selector': '',
   'placement': 'right'
   });
-  console.log("jimmy");
   });
 </script>
