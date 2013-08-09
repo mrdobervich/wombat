@@ -69,4 +69,14 @@ class User < ActiveRecord::Base
     self.course.assignments.reject { |a| self.assignments_completed.include?(a) }
   end
 
+  def mastery_category_score(category_id)
+    assessment_ids = Assessment.where(:student_id => self.id, :official => true).map { |a| a.id }
+    results = ObjectiveResult.find(:all, :conditions => {:mastery_category_id => category_id, :assessment_id => assessment_ids})
+
+    s = results.reduce(0) do |sum, value|       # find the sum
+      sum + value.score
+    end
+    s.to_f/results.size()                       # divide by # of 
+  end
+
 end

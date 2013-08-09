@@ -1,6 +1,7 @@
 module AssignmentsHelper
 
   def completed_image(assignment)
+    @user ||= current_user
     completed_solution = @user.assignment_solution(assignment.id)
     assignment_late = completed_solution && (assignment.due_date < completed_solution.created_at)
     current_date_late = (Time.now.to_datetime < assignment.due_date)
