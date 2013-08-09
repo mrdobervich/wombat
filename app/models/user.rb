@@ -74,6 +74,9 @@ class User < ActiveRecord::Base
     results = ObjectiveResult.find(:all, :conditions => {:mastery_category_id => category_id, :assessment_id => assessment_ids})
 
     s = results.reduce(0) do |sum, value|       # find the sum
+      if (value.score.nil?) 
+        value.score = 0 
+      end
       sum + value.score
     end
     s.to_f/results.size()                       # divide by # of 
