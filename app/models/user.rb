@@ -73,13 +73,21 @@ class User < ActiveRecord::Base
     assessment_ids = Assessment.where(:student_id => self.id, :official => true).map { |a| a.id }
     results = ObjectiveResult.find(:all, :conditions => {:mastery_category_id => category_id, :assessment_id => assessment_ids})
 
+    c = 0
     s = results.reduce(0) do |sum, value|       # find the sum
+      c = c + 1
       if (value.score.nil?) 
         value.score = 0 
+        c = c - 1
       end
       sum + value.score
     end
-    s.to_f/results.size()                       # divide by # of 
-  end
 
+    if (c == 0)
+      0
+    else
+      s.to_f/c                                    # divide by # of 
+
+    end
+  end
 end
