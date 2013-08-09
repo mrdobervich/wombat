@@ -11,20 +11,23 @@
 <% end %>
 
 <!-- NON-ADMIN VIEW STARTS HERE -->
-<p>
-  <b>Title:</b>
-  <%= @assignment.task.title %>
-</p>
+  
+<h1><%= @assignment.task.title %></h1>
 
 <p>
-  <b>Assignment instructions:</b>
-  <%= @assignment.description %>
-</p>
-
-<p>
-  <b>Task</b>
   <%= render 'tasks/show_task_for_assignment', :task => @assignment.task %>
 </p>
+
+<% if @assignment.description %>
+  assignment instructions<br />
+  <div class="well">
+  <%= @assignment.description %>
+  </div>
+<% end %>
+
+<br />
+<hr />
+
 
 <div class="tabbable">
   <ul class="nav nav-pills">

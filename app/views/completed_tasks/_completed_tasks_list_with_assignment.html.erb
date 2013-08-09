@@ -22,21 +22,34 @@
 
   <% completed_tasks.each do |completed_task| %>
   <% if @current && (completed_task.id == @current.completed_task_id) %>
-    <tr style="background-color: red;">
+    <tr style="background-color: #9FC263;">
   <% else %>
     <tr>
   <% end %>
     <td><%= completed_task.created_at %></td>
 
     <td>
-      <button name="completed_task" value="<%= completed_task.id %>" type="submit" class="btn pull-right"> <%= button_text %></button>
+      <% if @current && (completed_task.id == @current.completed_task_id) %>
+        <span class="pull-right">Currently submitted assignment</span>
+      <% else %>
+        <button name="completed_task" value="<%= completed_task.id %>" type="submit" class="btn pull-right"> <%= button_text %></button>
+      <% end %>     
+
+
 
 	<div class="layer1">
 	  <div class="expand_target">
 	    show your solution
 	</div>
 	  <div class="expandable">
-	    <%= completed_task.solution %>
+
+	    <div id="codeview">
+	      <a href="#" id="codeview_toggler">full screen</a>
+	      <pre>
+		<%= addPrettifyTags("<code>" + completed_task.solution + "</code>").html_safe %>
+	      </pre>
+	    </div>
+
 	  </div>
 	</div>
     </td>
@@ -45,3 +58,7 @@
 </table>
 
 <% end %>
+
+<script>
+  prettyPrint()
+</script>

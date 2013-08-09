@@ -11,6 +11,9 @@ class AssignmentsController < ApplicationController
       @assignments = Assignment.all
     end
 
+    params[:id] ||= current_user.id
+    @user = User.find(params[:id])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @assignments }

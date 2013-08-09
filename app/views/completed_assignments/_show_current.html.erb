@@ -8,8 +8,17 @@
 </div>
 </p>
 
-<p>
-<pre>
-  <%= raw addPrettifyTags(completed_assignment.completed_task.solution) %>
-</pre>
-</p>
+<div id="codeview">
+  <a href="#" id="codeview_toggler">full screen</a>
+  <pre>
+    <%= addPrettifyTags("<code>" + completed_assignment.completed_task.solution + "</code>").html_safe %>
+  </pre>
+</div>
+
+<script>
+  prettyPrint();
+
+  $("#codeview_toggler").click(function() {
+    $("#codeview").toggleClass("fullscreen")
+  });
+</script>

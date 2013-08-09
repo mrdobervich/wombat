@@ -1,27 +1,21 @@
-<p>
-  <b>Title:</b>
-  <%= task.title %>
-</p>
+<em><%= task.short_description %></em>
+
+<span class="pull-right">
+  <b>Difficulty:</b>
+  <%= task.difficulty %>
+</span>
 
 <p>
-  <b>Short description:</b>
-  <%= task.short_description %>
-</p>
-
-<p>
-  <b>Long description:</b>
+  <b>Description</b>
   <pre>
     <%= raw addPrettifyTags(task.long_description) %>
   </pre>
 </p>
 
-<p>
-  <b>Difficulty:</b>
-  <%= task.difficulty %>
-</p>
-
 <% if is_admin %>
-  <%= link_to 'Edit', edit_task_path(task) %> |
+  
+  <%= admin_div( link_to 'edit task', edit_task_path(task) ) %>
+  
 <% end %>
 
 <script>

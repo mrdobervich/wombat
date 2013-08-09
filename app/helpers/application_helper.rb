@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def admin_div(text)
+    ("<div style='position: fixed; right: 100px;'>" + text + "</div>").html_safe
+  end
+
   def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
     messages = resource.errors[:base].map { |msg| content_tag(:p, msg) }.join

@@ -2,11 +2,11 @@
   <%= f.error_notification %>
   
   <div class="form-inputs">
-    Your solution for: <%= @task.short_description %>     <span class="pull-right">Revisions: <%= @revisions %></span>
+    Your solution for: <%= @task.title %>     <span class="pull-right">Revisions: <%= @revisions %></span>
     <%= f.input :user_id, :as => :hidden, :input_html => { :value => @user.id } %>
     <%= f.input :task_id, :as => :hidden, :input_html => { :value => @task.id } %>
     <br />
-    <%= f.text_area :solution %>
+    <%= f.text_area :solution, :rows => "20", :cols => "100" %>
     <br />
   </div>
 
