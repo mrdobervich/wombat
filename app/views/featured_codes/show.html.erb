@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @featured_code.title %></h1>
+
+<% if !@featured_code.author.nil? %>
+<div class="pull-right">
+  <b>Author:</b>  <%= @featured_code.author %>
+</div>
+<% end %>
+
+<em><%= @featured_code.short_task_description %></em>
+
+<div class="well">
+  <%= addPrettifyTags(@featured_code.task_description).html_safe %>
+</div>
+
+<div class="noselect">
+  <b>Code:</b>
+  <%= raw addPrettifyTags("<code>" + @featured_code.code + "</code>") %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_featured_code_path(@featured_code) if is_admin %>

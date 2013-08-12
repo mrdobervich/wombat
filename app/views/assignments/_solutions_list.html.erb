@@ -1,7 +1,7 @@
 <% users = assignment.course.users %>
 <% course = assignment.course %>
 
-<div class="btn pull-right" id="expandall">expand all</div>
+<div class="btn pull-right expandall">expand all</div>
 
 <h4>Solutions for <%= course.full_name %></h4>
 <table class="table table-condensed">
@@ -25,23 +25,27 @@
 	  <%= user.name %>
 	<% end %>
       <td>
-	<div class="layer1">
+
 	  <div class="expand_target">
 	    <% if a %>
 	    <%= a.created_at %>
 	    <% end %>
-	</div>
+	  </div>
 	  <div class="expandable">
 	    <% if a %>
-	    <%= a.completed_task.solution %>
+	  <pre>
+	    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
+	  </pre>
+
 	    <% end %>
 	  </div>
-	</div>
+
       </td>
       <td>
 	<% if a %>
 	  <% a.assessments.each { |assess| %>
 	    <%= link_to 'show', edit_assessment_path(assess.id) %>
+	    (<%= link_to('x', assess, method: :delete, data: { confirm: 'Are you sure?' }) %>)
 	  <% } %>
 	<% end %>
       </td>
@@ -55,3 +59,6 @@
   </tbody>
 </table>
 
+<script>
+  prettyPrint()
+</script>

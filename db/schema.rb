@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806005753) do
+ActiveRecord::Schema.define(:version => 20130812161826) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "grader_id"
@@ -97,6 +97,20 @@ ActiveRecord::Schema.define(:version => 20130806005753) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "featured_codes", :force => true do |t|
+    t.string   "title"
+    t.string   "short_task_description"
+    t.text     "task_description"
+    t.string   "author"
+    t.text     "code"
+    t.integer  "course_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.text     "commentary"
+  end
+
+  add_index "featured_codes", ["course_id"], :name => "index_featured_codes_on_course_id"
 
   create_table "mastery_categories", :force => true do |t|
     t.string   "name"

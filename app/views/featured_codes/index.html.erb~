@@ -1,0 +1,33 @@
+<h1>Listing featured_codes</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Short task description</th>
+    <th>Task description</th>
+    <th>Author</th>
+    <th>Code</th>
+    <th>Course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @featured_codes.each do |featured_code| %>
+  <tr>
+    <td><%= featured_code.title %></td>
+    <td><%= featured_code.short_task_description %></td>
+    <td><%= featured_code.task_description %></td>
+    <td><%= featured_code.author %></td>
+    <td><%= featured_code.code %></td>
+    <td><%= featured_code.course %></td>
+    <td><%= link_to 'Show', featured_code %></td>
+    <td><%= link_to 'Edit', edit_featured_code_path(featured_code) %></td>
+    <td><%= link_to 'Destroy', featured_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Featured code', new_featured_code_path %>

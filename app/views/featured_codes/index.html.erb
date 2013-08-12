@@ -1,0 +1,28 @@
+<% @course = Course.find(params[:course_id]) %>
+
+<h1>Featured Code for <%= @course.full_name %></h1>
+
+<table class="table">
+  <tr>
+    <th>Problem</th>
+    <th>Short description</th>
+    <th>Original Author</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @featured_codes.each do |featured_code| %>
+  <tr>
+    <td><%= link_to featured_code.title, featured_code %></td>
+    <td><%= featured_code.short_task_description %></td>
+    <td><%= featured_code.author %></td>
+    <td><%= link_to 'Edit', edit_featured_code_path(featured_code) if is_admin %></td>
+    <td><%= link_to 'Destroy', featured_code, method: :delete, data: { confirm: 'Are you sure?' } if is_admin %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Featured code', new_featured_code_path if is_admin %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @featured_code.title %>
+</p>
+
+<p>
+  <b>Short task description:</b>
+  <%= @featured_code.short_task_description %>
+</p>
+
+<p>
+  <b>Task description:</b>
+  <%= @featured_code.task_description %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @featured_code.author %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @featured_code.code %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @featured_code.course %>
+</p>
+
+
+<%= link_to 'Edit', edit_featured_code_path(@featured_code) %> |
+<%= link_to 'Back', featured_codes_path %>

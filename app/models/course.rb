@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
   has_many :calendar_entries
   has_many :users
   has_many :assignments
+  has_many :featured_codes
 
   def full_name
     return self.year.to_s + " " + self.name + " - " + self.period.to_s 

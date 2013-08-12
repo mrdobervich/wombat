@@ -1,6 +1,31 @@
 <% @completed_assignment ||= completed_assignment %>
 
 <p>
-  <b>Completed task:</b>
-  <%= raw addPrettifyTags(@completed_assignment.completed_task.solution) %>
+  <h1><%= @completed_assignment.user.name %> Solution</h1>
 </p>
+
+  <div class="pull-right">
+    <%= link_to 'evaluate', new_assessment_path(:grader_id => current_user.id, :student_id => @completed_assignment.user.id, :completed_assignment_id => @completed_assignment.id, :official => true) %>
+
+    <% if @completed_assignment.assessments
+       @completed_assignment.assessments.each { |assess| %>
+          <%= link_to 'show', edit_assessment_path(assess.id) %>
+
+	  (<%= link_to('x', assess, method: :delete, data: { confirm: 'Are you sure?' }) %>)
+
+    <% } %>
+    <% end %>
+  </div>
+
+  <pre>
+    <%= addPrettifyTags("<code>" + @completed_assignment.completed_task.solution + "</code>").html_safe %>
+  </pre>
+
+    <br />
+    <%= link_to 'feature this', new_featured_code_path(:completed_assignment_id => @completed_assignment.id) %>
+
+
+
+<script>
+  prettyPrint()
+</script>

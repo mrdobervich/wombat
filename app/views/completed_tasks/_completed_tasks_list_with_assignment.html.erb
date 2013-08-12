@@ -1,4 +1,4 @@
-<div class="btn pull-right" id="expandall">expand all</div>
+<div class="btn pull-right expandall">expand all</div>
 
 <% 
      @current = current_user.assignment_solution(@assignment.id)
@@ -43,11 +43,11 @@
     <tr>
       <td colspan="2">
       <div class="expandable">
-	  <pre>
-	    <%= addPrettifyTags("<code>" + completed_task.solution + "</code>").html_safe %>
-	  </pre>
-	</div>
-    </td>
+	<pre>
+	  <%= addPrettifyTags("<code>" + completed_task.solution + "</code>").html_safe %>
+	</pre>
+      </div>
+      </td>
   </tr>
   <% end %>
 </table>

@@ -1,4 +1,6 @@
 Wombat::Application.routes.draw do
+  resources :featured_codes
+
   resources :objective_results
   resources :assessments
   resources :objectives
@@ -11,6 +13,7 @@ Wombat::Application.routes.draw do
   resources :courses do
     resources :calendar_entries, shallow: true
     resources :assignments, shallow: true
+    resources :featured_codes, shallow: true
   end
 
   devise_for :users
