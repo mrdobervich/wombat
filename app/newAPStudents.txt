@@ -1,0 +1,35 @@
+Last,First,Class,Section
+Ethai Barnea, Ethai_Barnea@fuhsd.org, AP Comp Sci A,1
+Evan Barnett, Evan_Barnett@fuhsd.org, AP Comp Sci A,1
+Ronen Burd, Ronen_Burd@fuhsd.org, AP Comp Sci A,1
+Arden Castle, Arden_Castle@fuhsd.org, AP Comp Sci A,1
+Alexander Corley, Alexander_Corley@fuhsd.org, AP Comp Sci A,1
+Dylan Davidson, Dylan_Davidson@fuhsd.org, AP Comp Sci A,1
+Mayer Feldman, Mayer_Feldman@fuhsd.org, AP Comp Sci A,1
+Nils Frederick Franc, Nils Frederick_Franc@fuhsd.org, AP Comp Sci A,1
+Chetan Gomatam, Chetan_Gomatam@fuhsd.org, AP Comp Sci A,1
+Jenny Han, Jenny_Han@fuhsd.org, AP Comp Sci A,1
+Sitar Harel, Sitar_Harel@fuhsd.org, AP Comp Sci A,1
+Joseph Hertzberg, Joseph_Hertzberg@fuhsd.org, AP Comp Sci A,1
+Alvin Ho, Alvin_Ho@fuhsd.org, AP Comp Sci A,1
+Justin Huang, Justin_Huang@fuhsd.org, AP Comp Sci A,1
+Suin Kim, Suin_Kim@fuhsd.org, AP Comp Sci A,1
+Austin King, Austin_King@fuhsd.org, AP Comp Sci A,1
+Randy Kwok, Randy_Kwok@fuhsd.org, AP Comp Sci A,1
+Ryan Lo, Ryan_Lo@fuhsd.org, AP Comp Sci A,1
+Conor Lum, Conor_Lum@fuhsd.org, AP Comp Sci A,1
+Brandon Luong, Brandon_Luong@fuhsd.org, AP Comp Sci A,1
+Vasu Maheshwari, Vasu_Maheshwari@fuhsd.org, AP Comp Sci A,1
+Alan Mai,Alan_Mai@fushd.org, AP Comp Sci A,1
+Hari Menon,Hari_Menon@fushd.org, AP Comp Sci A,1
+Gary Miltenberger,Gary_Miltenberger@fushd.org, AP Comp Sci A,1
+Kevin Ngo,Kevin_Ngo@fushd.org, AP Comp Sci A,1
+Jonathan Nguyen,Jonathan_Nguyen@fushd.org, AP Comp Sci A,1
+Saahil Rane,Saahil_Rane@fushd.org, AP Comp Sci A,1
+Sean Reilly,Sean_Reilly@fushd.org, AP Comp Sci A,1
+Takumi Sakai,Takumi_Sakai@fushd.org, AP Comp Sci A,1
+Emmanuel Salcedo,Emmanuel_Salcedo@fushd.org, AP Comp Sci A,1
+Kedar Sudhalkar,Kedar_Sudhalkar@fushd.org, AP Comp Sci A,1
+Ezekiel Sung,Ezekiel_Sung@fushd.org, AP Comp Sci A,1
+Jocelyn Tran,Jocelyn_Tran@fushd.org, AP Comp Sci A,1
+Eric Win,Eric_Win@fushd.org, AP Comp Sci A,1

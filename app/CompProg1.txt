@@ -1,0 +1,30 @@
+Last,First,Class,Section
+Jack Bianchi,Jack_Bianchi@fushd.org, Comp Prog Java,1
+John Chapman,John_Chapman@fushd.org, Comp Prog Java,1
+Caleb Chu,Caleb_Chu@fushd.org, Comp Prog Java,1
+Min Chung Chu,Min Chung_Chu@fushd.org, Comp Prog Java,1
+Kyle Jorel Cruz,Kyle Jorel_Cruz@fushd.org, Comp Prog Java,1
+Ian Davidson,Ian_Davidson@fushd.org, Comp Prog Java,1
+Vincent Fateh,Vincent_Fateh@fushd.org, Comp Prog Java,1
+Tomer Gotesdyner,Tomer_Gotesdyner@fushd.org, Comp Prog Java,1
+Idan Hovav,Idan_Hovav@fushd.org, Comp Prog Java,1
+Marcel Jacobs,Marcel_Jacobs@fushd.org, Comp Prog Java,1
+Rishab Kedia,Rishab_Kedia@fushd.org, Comp Prog Java,1
+Axel Laude,Axel_Laude@fushd.org, Comp Prog Java,1
+Grace Lee,Grace_Lee@fushd.org, Comp Prog Java,1
+Mina Loldj,Mina_Loldj@fushd.org, Comp Prog Java,1
+Leilani Loo,Leilani_Loo@fushd.org, Comp Prog Java,1
+Elena MacKie,Elena_MacKie@fushd.org, Comp Prog Java,1
+Christopher Magat,Christopher_Magat@fushd.org, Comp Prog Java,1
+Kit Yeung Mak,Kit Yeung_Mak@fushd.org, Comp Prog Java,1
+Kaia Makihara Elman,Kaia_Makihara Elman@fushd.org, Comp Prog Java,1
+Andres Morales,Andres_Morales@fushd.org, Comp Prog Java,1
+Kiavosh Naderi,Kiavosh_Naderi@fushd.org, Comp Prog Java,1
+Grant Otewalt,Grant_Otewalt@fushd.org, Comp Prog Java,1
+Gregory Richter,Gregory_Richter@fushd.org, Comp Prog Java,1
+Jose Salinas,Jose_Salinas@fushd.org, Comp Prog Java,1
+Or Shafran,Or_Shafran@fushd.org, Comp Prog Java,1
+Norman Tang,Norman_Tang@fushd.org, Comp Prog Java,1
+Abner Vadil,Abner_Vadil@fushd.org, Comp Prog Java,1
+Barath Vedantham,Barath_Vedantham@fushd.org, Comp Prog Java,1
+Jessica Yu,Jessica_Yu@fushd.org, Comp Prog Java,1

@@ -1,0 +1,27 @@
+Last,First,Class,Section
+Aqeel Ali,Aqeel_Ali@fushd.org, Comp Prog Java,2
+Hector Almendarez Benavidez,Hector_Almendarez Benavidez@fushd.org, Comp Prog Java,2
+Honorio Altun,Honorio_Altun@fushd.org, Comp Prog Java,2
+Ofir Bekker,Ofir_Bekker@fushd.org, Comp Prog Java,2
+Aniketh Bhat,Aniketh_Bhat@fushd.org, Comp Prog Java,2
+Philip Cori,Philip_Cori@fushd.org, Comp Prog Java,2
+Shahar Hart,Shahar_Hart@fushd.org, Comp Prog Java,2
+Kathleen Hsu,Kathleen_Hsu@fushd.org, Comp Prog Java,2
+Phillip Huynh,Phillip_Huynh@fushd.org, Comp Prog Java,2
+Stephen Kemp,Stephen_Kemp@fushd.org, Comp Prog Java,2
+John Paolo Layug,John Paolo_Layug@fushd.org, Comp Prog Java,2
+Evan Lee,Evan_Lee@fushd.org, Comp Prog Java,2
+Ryan Lee,Ryan_Lee@fushd.org, Comp Prog Java,2
+Patrick Luiz,Patrick_Luiz@fushd.org, Comp Prog Java,2
+Monsi Magal,Monsi_Magal@fushd.org, Comp Prog Java,2
+Kayan Naderi,Kayan_Naderi@fushd.org, Comp Prog Java,2
+Anthony Orozco,Anthony_Orozco@fushd.org, Comp Prog Java,2
+Essam Rao,Essam_Rao@fushd.org, Comp Prog Java,2
+Rohan Rawat,Rohan_Rawat@fushd.org, Comp Prog Java,2
+Vicente Salas,Vicente_Salas@fushd.org, Comp Prog Java,2
+Varinder Singh,Varinder_Singh@fushd.org, Comp Prog Java,2
+Aaron Sy,Aaron_Sy@fushd.org, Comp Prog Java,2
+Yutaka Tokunaga,Yutaka_Tokunaga@fushd.org, Comp Prog Java,2
+Oded Tzori,Oded_Tzori@fushd.org, Comp Prog Java,2
+Bryan William,Bryan_William@fushd.org, Comp Prog Java,2
+Justin Young,Justin_Young@fushd.org, Comp Prog Java,2
