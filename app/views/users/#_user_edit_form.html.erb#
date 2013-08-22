@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <p>Name: <%= @user.name %></p>
-    <p><%= f.input "email" %></p>
+    <p> <%= f.input "email" %></p>
     <%= select("user", "course_id", Course.all.collect {|c| [ c.year.to_s + " " + c.name + ": " + c.period.to_s, c.id ] }) if is_admin%>
   </div>
 
