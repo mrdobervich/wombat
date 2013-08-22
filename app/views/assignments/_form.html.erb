@@ -2,12 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :task_id, :as => :hidden, :input_html => { :value => params['task_id'] } %>
+    <%= f.input :task_id, :as => :hidden, :input_html => { :value => @assignment.task_id } %>
     <%= f.input :due_date %>
     <%= f.input :description %>
     <%= f.input :category %>
 
-    <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, { :multiple => true, :size => 5 }) %>
+    <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, {:size => 5, :selected => @assignment.course_id }) %>
   </div>
 
   <div class="form-actions">
