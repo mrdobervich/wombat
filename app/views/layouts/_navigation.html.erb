@@ -35,7 +35,7 @@
 <ul class="nav pull-right">
   <% if user_signed_in? %>
     <li>
-    <%= link_to 'Edit Account', edit_user_path(@user) %>
+    <% # link_to 'Edit Account', edit_user_path(@user) %>
     </li>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>

@@ -1,63 +1,63 @@
 <h1>Your First Program</h1>
 
 <p>
-Here are several examples to show you the basic structure of a java program.
+There are two main ways to get user input:  One using a Scanner object and one using a JOptionPane.  I'll show you both methods.
 </p>
 
+<h3>User input using a Scanner object</h3>
+
+<p>A scanner gets user input straight from the text console.  It has a different method you use depending on what data type you want it to return.  Here's the example:</p>
+
 <pre class="prettyprint linenums">
-  public class HelloWorld {
+import java.util.Scanner;
+
+public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hello, World - line 1");
-        System.out.println("Hello, World - line 2");
+        Scanner userInput = new Scanner(system.in);   // create a Scanner object
+
+        System.out.print("Type a number: ");
+        double miles = userInput.nextDouble();        // ask it to get a Double from the console
+    
+        double feet = miles / 5280;
+        System.out.println("There are " + feet + " feet in " + miles + " miles");
     }
 }
 </pre>
 
-<p>Here is the same program with comments</p>
+Here is how you have the scanner get other types of input: <br />
+
+<code>
+    userInput.nextInt();         // returns an integer  <br />
+    userInput.nextBoolean();     // returns a boolean  <br />
+    userInput.next();            // returns a String  <br />
+</code>
+
+<h3>User input using a JOptionPane</h3>
+
+<p>A JOptionPane will pop up a graphical window with a text field in it that you type into and click 'ok' to submit.  This always returns whatever the user typed as a String.  If you want it to be a number, you have to explicitly convert it to the data type you want.  See the example below on line 8.</p>
 
 <pre class="prettyprint linenums">
-  /* 
-     Author:   Sir Waddington
-     Date:     July 25, 2013
-     Revision: 0
-  */
+import javax.swing.JOptionPane;
 
-  public class HelloWorld {                                // start of program named Hello World
-    public static void main(String[] args) {                 // start of main
-        System.out.println("Hello, World - line 1");           // first line to be run
-        System.out.println("Hello, World - line 2");           // second line to be run
-    }                                                                        // end of main
-}                                                                        // end of program named Hello World
-</pre>
-
-Here is the sort of pattern you should use for your programs:
-
-<pre class="prettyprint linenums">
-  public class HelloWorld {
+public class HelloWorld {
     public static void main(String[] args) {
-        // 1.  Declare and assign variables here.  (Think of these as the input information your program needs
-        // 2.  Do calculations
-        // 3.  Display results.  (Think of this as the output of your program).
+        String response;
+
+        response = JOptionPane.showInputDialog("Enter a number of miles");        // get a String from the user
+        double miles = Double.parseDouble(response);                              // convert it to a double
+
+        double feet = miles / 5280;
+        System.out.println("There are " + feet + " feet in " + miles + " miles");
     }
 }
 </pre>
 
-<p>
-  <b>Online texts/tutorials</b>
-  <ul>
-    <li><%= make_link("Your first program", "princeton", "http://introcs.cs.princeton.edu/java/11hello/" ).html_safe %></li>
-    <li><a href="http://www.greenteapress.com/thinkapjava/html/thinkjava003.html">The way of the program</a> - from <%= think_java_link.html_safe %> </li> 
-    <li><%= make_link("Running small programs", "chortle", "http://chortle.ccsu.edu/java5/Notes/chap06/ch06_1.html" ).html_safe %></li>
-    <li><a href="http://www.faqs.org/docs/javap/c2/s1.html">The Basic Java Application</a> - from <%= fractal_book_link.html_safe  %> </li> 
-  </ul>
-
-  <b>Videos</b>
-  <ul>
-    <li><a href="http://www.youtube.com/watch?v=Hl-zzrqQoSE&list=PLFE2CE09D83EE3E28&index=1">Java tutorial 1</a> - from <%= newboston_link.html_safe %></li>
-    <li><%= make_link("Setting up Eclipse and Hello World", "mybringback", "http://www.youtube.com/watch?v=fEApt1B8ycs&list=SPDAA5DE54FB5215EC&index=1" ).html_safe %></li>
-    <li><%= make_link("Video tutorial 1", "derekbanans", "http://www.youtube.com/watch?v=TBWX97e1E9g&list=PLE7E8B7F4856C9B19&index=1" ).html_safe %></li>
-  </ul>
-
+<p>If you want to convert a String into something other than a double, here are some other options you could have typed on line 8:<br />
+<code>
+  int miles = Integer.parseInt(response);  <br />
+  boolean m = Boolean.parseBoolean(response); <br />
+  // you don't need to say String.parseString(response) because response is already a String!
+</code>
 </p>
 
 <script>

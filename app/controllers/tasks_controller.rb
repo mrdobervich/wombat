@@ -103,6 +103,7 @@ class TasksController < ApplicationController
   end
 
   def index
+    @user = current_user
 
     params[:q] ||= {}
 

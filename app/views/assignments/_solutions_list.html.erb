@@ -4,7 +4,7 @@
 <div class="btn pull-right expandall">expand all</div>
 
 <h4>Solutions for <%= course.full_name %></h4>
-<table class="table table-condensed">
+<table class="table table-condensed width:100%">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,8 +24,8 @@
         <% else %>
 	  <%= user.name %>
 	<% end %>
-      <td>
 
+      <td>
 	  <div class="expand_target">
 	    <% if a %>
 	    <%= a.created_at %>

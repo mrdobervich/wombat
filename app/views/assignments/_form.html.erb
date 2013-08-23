@@ -1,4 +1,8 @@
 <%= simple_form_for(@assignment) do |f| %>
+  <% if params[:task_id] 
+       @assignment.task_id = params[:task_id]
+     end
+  %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -7,7 +11,7 @@
     <%= f.input :description %>
     <%= f.input :category %>
 
-    <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, {:size => 5, :selected => @assignment.course_id }) %>
+    <%= select("m", "cids", Course.all.collect {|c| [ c.full_name, c.id ] }, {}, {:multiple => true, :size => 5, :selected => @assignment.course_id }) %>
   </div>
 
   <div class="form-actions">
