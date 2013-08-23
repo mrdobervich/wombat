@@ -4,7 +4,7 @@
 <div class="btn pull-right expandall">expand all</div>
 
 <h4>Solutions for <%= course.full_name %></h4>
-<table class="table table-condensed width:100%">
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Name</th>
@@ -31,7 +31,7 @@
 	    <%= a.created_at %>
 	    <% end %>
 	  </div>
-	  <div class="expandable">
+	  <div class="expandable fullscreen">
 	    <% if a %>
 	  <pre>
 	    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
