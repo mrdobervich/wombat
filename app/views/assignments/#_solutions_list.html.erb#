@@ -1,0 +1,69 @@
+<% users = assignment.course.users %>
+<% course = assignment.course %>
+
+<div class="btn pull-right expandall">expand all</div>
+
+<h4>Solutions for <%= course.full_name %></h4>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Turned-in?</th>
+      <th>View Assessments</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% users.each do |user| %>
+    <% ass =  user.completed_assignments.where(:assignment_id => assignment.id, :current => true) %>
+    <% a = ass.first %>
+    <tr>
+      <td>
+	<% if a %> 
+	  <%= link_to user.name, a %></td>
+        <% else %>
+	  <%= user.name %>
+	<% end %>
+
+      <td>
+	  <div class="expand_target">
+	    <% if a %>
+	    <%= a.created_at %>
+	    <% end %>
+	  </div>
+      </td>
+      <td>
+	<% if a %>
+	  <% a.assessments.each { |assess| %>
+	    <%= link_to 'show', edit_assessment_path(assess.id) %>
+	    (<%= link_to('x', assess, method: :delete, data: { confirm: 'Are you sure?' }) %>)
+	  <% } %>
+	<% end %>
+      </td>
+      <td>
+	<% if a %>
+	<%= link_to 'evaluate', new_assessment_path(:grader_id => current_user.id, :student_id => user.id, :completed_assignment_id => a.id, :official => true) %>
+	<% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+	<div class="expandable fullscreen">
+	  <% if a %>
+	  <pre>
+	    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
+	  </pre>
+	  
+	  <% end %>
+	</div>
+      </td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
+
+<script>
+  prettyPrint()
+</script>

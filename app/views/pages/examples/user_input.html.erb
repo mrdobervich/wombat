@@ -1,4 +1,4 @@
-<h1>Your First Program</h1>
+<h1>User Input</h1>
 
 <p>
 There are two main ways to get user input:  One using a Scanner object and one using a JOptionPane.  I'll show you both methods.
@@ -26,11 +26,11 @@ public class HelloWorld {
 
 Here is how you have the scanner get other types of input: <br />
 
-<code>
-    userInput.nextInt();         // returns an integer  <br />
-    userInput.nextBoolean();     // returns a boolean  <br />
-    userInput.next();            // returns a String  <br />
-</code>
+<pre>
+    userInput.nextInt();         // returns an integer  
+    userInput.nextBoolean();     // returns a boolean  
+    userInput.next();            // returns a String  
+</pre>
 
 <h3>User input using a JOptionPane</h3>
 
@@ -53,11 +53,12 @@ public class HelloWorld {
 </pre>
 
 <p>If you want to convert a String into something other than a double, here are some other options you could have typed on line 8:<br />
-<code>
-  int miles = Integer.parseInt(response);  <br />
-  boolean m = Boolean.parseBoolean(response); <br />
-  // you don't need to say String.parseString(response) because response is already a String!
-</code>
+<pre>
+  int miles = Integer.parseInt(response);  
+  boolean m = Boolean.parseBoolean(response);
+  
+  Note:  you don't need to say String.parseString(response) because response is already a String!
+</pre>
 </p>
 
 <script>

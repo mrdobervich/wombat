@@ -1,0 +1,40 @@
+<h1>Simple Math</h1>
+
+<p>Here are examples of how to add, subtract, multiply and divide numbers.</p>
+
+<table>
+  <tr><td>Symbol</td><td>What it means</td><td>Example</td></tr>  
+  <tr><td>+</td><td>addition</td><td><code>double a = b + 3 + 6.2;</code></td></tr>
+  <tr><td>-</td><td>subtraction</td><td><code>double b = 3.14159 - a;</code></td></tr>
+  <tr><td>*</td><td>multiplication</td><td><code>double c = a*a*a;</code></td></tr>
+  <tr><td>/</td><td>division</td><td><code>double d = 123 / 3.2;</code></td></tr>
+  <tr><td>%</td><td>modulus (remainder)</td><td><code>double remainder = 11 % 4;  // remainder is 3</code></td></tr>
+</table>
+
+<p>
+<b>DANGER:  Integer Division!</b> <br />
+When you use the / symbol with integers, it will chop off any decimal part of the answer and return an integer.  For example:
+
+<pre class="prettyprint linenums">double a = 2 / 3; </pre>
+
+After this code runs, a has the value 0 in it, because 2 and 3 are both integers.  This is true EVEN THOUGH the variable the answer is getting stored into is a double.  <br />
+
+Here are two ways to fix this problem:
+<br />
+
+<pre class="prettyprint linenums">
+  int a = 3;
+  
+  double answer1 = 2.0/3.0;        // adding a .0 after the number makes them into doubles
+  double answer2 = 2 / (double)a;  // adding (double) before the variable a treats the variable like a double.
+                                   // this is called casting.  You can see more example on its own page.
+</pre>
+</p>
+
+<p><b>The Math Library</b>
+Java provides a math library which lets you do a wide range of other operations such as finding a maximum, a minimum, a square root, performing exponentiation, finding the values of trig functions, and so on.  You can read more about it on <a href="http://www.cafeaulait.org/course/week4/40.html">this page</a>.
+</p>
+
+<script>
+prettyPrint()
+</script>
