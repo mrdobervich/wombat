@@ -31,15 +31,6 @@
 	    <%= a.created_at %>
 	    <% end %>
 	  </div>
-	  <div class="expandable fullscreen">
-	    <% if a %>
-	  <pre>
-	    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
-	  </pre>
-
-	    <% end %>
-	  </div>
-
       </td>
       <td>
 	<% if a %>
@@ -55,6 +46,20 @@
 	<% end %>
       </td>
     </tr>
+
+    <tr>
+      <td colspan="2">
+	<div class="expandable fullscreen">
+	  <% if a %>
+	  <pre>
+	    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
+	  </pre>
+	  
+	  <% end %>
+	</div>
+      </td>
+    </tr>
+
   <% end %>
   </tbody>
 </table>
