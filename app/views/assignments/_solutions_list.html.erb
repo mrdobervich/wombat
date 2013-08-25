@@ -13,10 +13,12 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+</table>
+
   <% users.each do |user| %>
     <% ass =  user.completed_assignments.where(:assignment_id => assignment.id, :current => true) %>
     <% a = ass.first %>
+<table class="table table-condensed">
     <tr>
       <td>
 	<% if a %> 
@@ -46,23 +48,17 @@
 	<% end %>
       </td>
     </tr>
-
-    <tr>
-      <td colspan="2">
-	<div class="expandable fullscreen">
-	  <% if a %>
-	  <pre>
-	    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
-	  </pre>
-	  
-	  <% end %>
-	</div>
-      </td>
-    </tr>
-
-  <% end %>
-  </tbody>
 </table>
+
+<div class="expandable fullscreen">
+  <% if a %>
+  <pre>
+    <%= addPrettifyTags("<code>" + a.completed_task.solution + "</code>").html_safe %>
+  </pre>
+  
+  <% end %>
+</div>
+<% end %>
 
 <script>
   prettyPrint()

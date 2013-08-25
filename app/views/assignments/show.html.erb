@@ -5,7 +5,7 @@
     <li><a href="#adminpane2" data-toggle="tab">View class solutions</a></li>
 
   </ul>
-</div><div class="span9">
+</div>
   <div class="tab-content">
     <div id="adminpane1" class="tab-pane active">
 <% end %>
@@ -74,7 +74,7 @@
 <% if is_admin %>
     </div>
 
-    <div id="adminpane2" class="tab-pane">
+    <div id="adminpane2" class="tab-pane" style="width: 100%">
     <h4>Class Solutions</h4>
       <%= render 'solutions_list', {:assignment => @assignment} %>
     </div>

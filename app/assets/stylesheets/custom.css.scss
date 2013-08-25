@@ -92,10 +92,8 @@ hr {
 }
 
 .fullscreen {
-    position: fixed;
-    left: 5%;
-    width:90%;
-    height:100%;
+    posiion: relative;
+    left: -200px;
 }
 
 #myModal {
