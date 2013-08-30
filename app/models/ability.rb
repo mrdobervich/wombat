@@ -7,13 +7,14 @@ class Ability
     can :dashboard, User
     can :edit, User, :id => user.id
     can [:index, :show], Task
+    can :index, Assignment, :course_id => user.course_id
     can :manage, CompletedTask, :user_id => user.id
 
     can :show, Assignment
 
     cannot :destroy, :all
     cannot :update, :all
-    cannot :index, [CompletedAssignment, CompletedTask, User, CalendarEntry, Message, Course, Assignment]
+    cannot :index, [CompletedAssignment, CompletedTask, User, CalendarEntry, Message, Course]
 
     if user.has_role? :admin
       can :manage, :all

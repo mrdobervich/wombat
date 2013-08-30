@@ -1,0 +1,65 @@
+<h1>Your First Program</h1>
+
+<p>
+Here are several examples to show you the basic structure of a java program.
+</p>
+
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World - line 1");
+        System.out.println("Hello, World - line 2");
+    }
+}
+</pre>
+
+<p>Here is the same program with comments</p>
+
+<pre class="prettyprint linenums">
+  /* 
+     Author:   Sir Waddington
+     Date:     July 25, 2013
+     Revision: 0
+  */
+
+  public class HelloWorld {                                // start of program named Hello World
+    public static void main(String[] args) {                 // start of main
+        System.out.println("Hello, World - line 1");           // first line to be run
+        System.out.println("Hello, World - line 2");           // second line to be run
+    }                                                                        // end of main
+}                                                                        // end of program named Hello World
+</pre>
+
+Here is the sort of pattern you should use for your programs:
+
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+        // 1.  Declare and assign variables here.  (Think of these as the input information your program needs
+        // 2.  Do calculations
+        // 3.  Display results.  (Think of this as the output of your program).
+    }
+}
+</pre>
+
+<p>
+  <b>Online texts/tutorials</b>
+  <ul>
+    <li><%= make_link("Your first program", "princeton", "http://introcs.cs.princeton.edu/java/11hello/" ).html_safe %></li>
+    <li><a href="http://www.greenteapress.com/thinkapjava/html/thinkjava003.html">The way of the program</a> - from <%= think_java_link.html_safe %> </li> 
+    <li><%= make_link("Running small programs", "chortle", "http://chortle.ccsu.edu/java5/Notes/chap06/ch06_1.html" ).html_safe %></li>
+    <li><a href="http://www.faqs.org/docs/javap/c2/s1.html">The Basic Java Application</a> - from <%= fractal_book_link.html_safe  %> </li> 
+  </ul>
+
+  <b>Videos</b>
+  <ul>
+    <li><a href="http://www.youtube.com/watch?v=Hl-zzrqQoSE&list=PLFE2CE09D83EE3E28&index=1">Java tutorial 1</a> - from <%= newboston_link.html_safe %></li>
+    <li><%= make_link("Setting up Eclipse and Hello World", "mybringback", "http://www.youtube.com/watch?v=fEApt1B8ycs&list=SPDAA5DE54FB5215EC&index=1" ).html_safe %></li>
+    <li><%= make_link("Video tutorial 1", "derekbanans", "http://www.youtube.com/watch?v=TBWX97e1E9g&list=PLE7E8B7F4856C9B19&index=1" ).html_safe %></li>
+  </ul>
+
+</p>
+
+<script>
+prettyPrint()
+</script>

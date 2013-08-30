@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     params[:id] ||= current_user.id
     @user = User.find(params[:id])
     @course = @user.course
-    @calendar_entries = @course.calendar_entries.limit(6) if @course
+    @calendar_entries = @course.calendar_entries.order("date DESC").limit(6) if @course
     @assignments = @course.assignments.order("due_date DESC").limit(6) if @course
     @tasks = @user.final_completed_tasks
 #    @tasks = @user.tasks.order("created_at DESC").limit(10)
