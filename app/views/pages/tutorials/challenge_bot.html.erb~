@@ -1,0 +1,163 @@
+<h1>Your First Program</h1>
+
+<!-- <p>If you have not set up eclipse on your computer you can do that following this tutorial.</p> -->
+
+<p>In this tutorial you will
+<ol>
+  <li>Make a workspace and create Hello World</li>
+  <li>Learn to use variables to <b>store information</b></li>
+  <li>Create a program to <b>do simple calculations</b></li>
+  <li>Improve your program by learning to get <b>user input</b>.</li>
+</ol>
+</p>
+
+<p><h3>1.  (Re)-Create Hello World</h3>
+
+First, watch me do this step in this video:  <a href="http://205.173.44.54/vod/mrddobervich/java/tutorial1/tutorial1-1.mp4">video</a>.
+
+You want to:
+<ol>
+  <li>Open eclipse</li>
+  <li>Switch to <em>your</em> workspace</li>
+  <li>Create a new class</li>
+</ol>
+
+Once you have your new class, type in the Hello World program and run it just to make sure you're starting from a program that you know is working.
+</p>
+
+<p>
+Here is what Hello World looks like.  <em>Make sure you're not missing line 2!!</em>
+
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World - line 1");
+        System.out.println("Hello, World - line 2");
+    }
+}
+</pre>
+
+</p>
+
+<p><h3>Using variables and data types</h3>
+You can think about a <b>variable</b> as a location you can store information.  In math you know that saying <code>x = 5</code> means that whenever you use x, it will really stand for 5.  You can do this in Java also, except you can use a full word for the name of your variable, and you can use it to represent things other than just numbers.  For example, I could say <code>name = "Marlo"</code> and then, whenever I use <code>name</code> I know it will really stand for <code>"marlo"</code>.
+</p>
+
+<p>To use variables, you need to do two things:
+<ol>
+<li><b>Declare the variable</b> - this means create the variable.  To do this, you need to tell the computer the <b>name</b> of your variable, and also <em>what type of information it's going to hold</em>.  This is called the <b>data type</b> of the variable.</li>
+<li><b>Initialize the variable</b> - this means that you will give your variable an initial value.
+</ol>
+</p>
+
+<p>
+Here are some examples of <b>declaring</b> and <b>intitializing</b> variables.
+
+<pre class="prettyprint linenums">
+  int age;             // declare the variable age.  It will hold an integer.
+  int numberOfPets;    // declare the variable numberOfPets.  It will hold an integer.
+
+  age = 33;            // initialize my age to 33.  In other words, store the number 33 inside 'age'.
+  numberOfPets = 10;   // I have 10 pets!
+</pre>
+
+Here are some other examples of just declaring variables to hold different kinds of information:
+
+<pre class="prettyprint linenums">
+  int age;              // declare the variable age.  It will hold an integer.
+  int numberOfPets;     // declare the variable numberOfPets.  It will hold an integer.
+  double pi;            // declare the variable pi.  It will hold a number with decimals.
+  String name;          // declare the variable name.  It will hold text.
+</pre>
+
+As you can see, there is a pattern here.  Whenever I declare a variable I use two words:  The first word is the <b>data type</b> of the variable.  It tells the computer what kind of information the variable will hold.  The second number is the <b>variable name</b>.
+
+<code>DataType VariableName</code>
+
+You also see the 3 most common data types you will be using.  Here they are:
+<br />
+<table class="table condensed-table">
+  <tr><td>Data Types</td><td>What it means</td><td>Example</td></tr>
+  <tr><td>int</td><td>integer (a number with no decimal part)</td><td>int numberOfSiblings = 2;</td></tr>
+  <tr><td>double</td><td>a real number (a number that could have a decimal part</td><td>double pi = 3.14159;</td></tr>
+  <tr><td>String</td><td>text</td><td>String name = "marl";</td></tr>
+</table>
+
+To store information inside your variable, you use the = sign, like this.
+
+<pre class="prettyprint linenums">
+  age = 33;   
+  numberOfPets = 10;
+  name = "Marl";
+  pi = 3.14;
+</pre>
+
+<b>NOTE:  You can't store anything inside your variable unless you have declared it first!</b>
+</p>
+
+<p>
+As you can see in the table of data types above, you are allowed to declare a variable and give it a value in the same line of code.
+</p>
+
+<p><h3>2.  Write a program to do a simple calculation</h3>
+  Watch me do this step in this video:  <a href="http://205.173.44.54/vod/mrddobervich/java/tutorial1/tutorial1-2.mp4">video</a>.
+  Here I create a second example program:  <a href="http://205.173.44.54/vod/mrddobervich/java/tutorial1/tutorial1-3.mp4">video</a>.
+</p>
+
+<p>Here is the sort of pattern you should use for your programs:
+
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+        // 1.  Declare and assign variables here.  (Think of these as the input information your program needs
+        // 2.  Do calculations
+        // 3.  Display results.  (Think of this as the output of your program).
+    }
+}
+</pre>
+</p>
+
+<p>For my example program, I thought of it this way:<br /><br />
+<b>Program to calculate the Area of a Circle</b>
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+      // Declare a variable for the radius of my circle.
+      // Declare a variable to hold the area (when I calculate it).
+
+      // Calculate the area and save it in the variable.
+
+      // Display the result.
+    }
+}
+</pre>
+</p>
+
+<p>Now I can translate each of those lines into java code.
+<pre class="prettyprint linenums">
+  public class HelloWorld {
+    public static void main(String[] args) {
+      double radius = 3;     // Declare a variable for the radius of my circle.
+      double area;           // Declare a variable to hold the area (when I calculate it).
+
+      area = 3.14*radius*radius    // Calculate the area and save it in the variable.
+
+      System.out.println("The area of a circle with radius " + radius + " is " + area);    // Display the result.
+    }
+}
+</pre>
+
+</p>
+
+<p><h3>3.  Getting user Input</h3>
+  Watch me do this step in this video:  <a href="http://205.173.44.54/vod/mrddobervich/java/tutorial1/tutorial1-4.mp4">video</a>.
+  Here is a different way to do user input:  <a href="http://205.173.44.54/vod/mrddobervich/java/tutorial1/tutorial1-5.mp4">video</a>.
+</p>
+
+<p>
+  For a written explanation of this step, see the example page for <%= link_to 'getting user input', '../examples/user_input' %>
+</p>
+
+<script>
+prettyPrint()
+</script>
