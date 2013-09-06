@@ -9,6 +9,7 @@ class Ability
     can [:index, :show], Task
     can :index, Assignment, :course_id => user.course_id
     can :manage, CompletedTask, :user_id => user.id
+    can :manage, CompletedAssignment, :user_id => user.id
 
     can :show, Assignment
 
